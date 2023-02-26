@@ -1,0 +1,35 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title animate__animated animate__pulse animate__faster">
+            {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+        </h2>
+        {{ $baseURL := "/projects" }}
+        {{ $projects := where .Site.Pages "Section" "==" "projects" }}
+        {{ $years := slice }}
+        {{ $semesters := slice }}
+
+        {{ range $project := $projects }}
+            {{ $parts := split $project.File.Path "/" }}
+            {{ $year := index $parts 1 }}
+            {{ $semester := index $parts 2 }}
+            {{ $years = union $years (slice $year) }}
+            {{ $semesters = union $semesters (slice $semester) }}
+        {{ end }}
+
+        <ul style="text-transform: capitalize;">
+        {{ range $years }}
+            {{ $year := . }}
+            {{ range $semesters }}
+                {{ $semester := . }}
+                {{ $semesterURL := printf "%s/%s/%s/" $baseURL $year $semester | urlize }}
+                <li><a href="{{ $semesterURL }}">{{ $year }} {{ $semester }}</a></li>
+            {{ end }}
+        {{ end }}
+        </ul>
+    </div>
+{{- end -}}

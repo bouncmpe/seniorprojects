@@ -1,0 +1,113 @@
+.projects-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.grid-sizer {
+    height: 0;
+}
+
+.projects-grid {
+    margin: 40px 0;
+
+    a {
+        &:hover,
+        &:active {
+            color: $global-font-color;
+        }
+    }
+
+    .grid-sizer,
+    a {
+        width: 50%;
+
+        @media only screen and (max-width:600px) {
+            width: 100%;
+        }
+    }
+}
+
+.project {
+    background-color: $header-background-color;
+    padding: 30px;
+    padding-top: 0;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    overflow: hidden;
+    cursor: pointer;
+
+    [theme=dark] & {
+        color: $global-font-secondary-color-dark;
+        background: $header-background-color-dark;
+
+        &:hover,
+        &:active {
+            color: $global-font-color-dark;
+        }
+    }
+
+    [theme=black] & {
+        color: $global-font-secondary-color-black;
+        background: $header-background-color-black;
+
+        &:hover,
+        &:active {
+            color: $global-font-color-black;
+        }
+    }
+
+    .poster {
+        width: calc(100% + 60px);
+        margin-left: -30px;
+        margin-bottom: 10px;
+    }
+
+    &_title {
+        display: block;
+        margin-bottom: 15px;
+        margin-top: 5px;
+        transition: color .3s;
+
+        &:hover {
+            color: $global-link-hover-color;
+
+            [theme=dark] & {
+                color: $global-link-hover-color-dark;
+            }
+
+            [theme=black] & {
+                color: $global-link-hover-color-dark;
+            }
+        }
+    }
+}
+
+.project-link {
+    position: relative;
+    transition: transform .3s;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.03);
+    }
+}
+
+.medal {
+    background-color: $header-background-color;
+    border: 3px solid $global-border-color;
+    border-radius: 50%;
+    padding: 15px;
+    padding-bottom: 12.5px;
+    width: fit-content;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}

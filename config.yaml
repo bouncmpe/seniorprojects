@@ -1,6 +1,6 @@
 baseURL: http://example.org/
 languageCode: en-us
-title: My New Hugo Site
+title: Senior Projects
 
 # Change the default theme to be use when building the site with Hugo
 module:
@@ -12,16 +12,23 @@ theme: github.com/HEIGE-PCloud/DoIt
 params:
   # DoIt theme version
   version: 0.2.X
+  paginate: 20
+  page:
+    library:
+      js:
+        indexjs: /js/index.js
+        imgjs: /js/lib/imagesloaded.pkgd.min.js
+        masonryjs: /js/lib/masonry.pkgd.min.js
 
 menu:
   main:
-    - identifier: "posts"
+    - identifier: "projects"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre: ""
       # you can add extra information after the name (HTML format is supported), such as icons
       post: ""
-      name: "Posts"
-      url: "/posts/"
+      name: "Projects"
+      url: "/projects/"
       # title will be shown when you hover on this menu link
       title: ""
       weight: 1
