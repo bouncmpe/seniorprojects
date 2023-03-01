@@ -1,3 +1,33 @@
+a {
+    text-decoration: none !important;
+    color: $global-font-secondary-color !important;
+
+    &:hover,
+    &:active {
+        color: $global-font-color !important;
+    }
+
+    [theme=dark] & {
+        color: $global-font-secondary-color-dark;
+        background: $header-background-color-dark;
+
+        &:hover,
+        &:active {
+            color: $global-font-color-dark;
+        }
+    }
+
+    [theme=black] & {
+        color: $global-font-secondary-color-black;
+        background: $header-background-color-black;
+
+        &:hover,
+        &:active {
+            color: $global-font-color-black;
+        }
+    }
+}
+
 .projects-page {
     max-width: 960px;
     margin: 0 auto;
