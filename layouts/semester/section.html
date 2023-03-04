@@ -4,29 +4,7 @@
 
 {{- define "content" -}}
     <div class="projects-page">
-        {{- /* Paginate */ -}}
-        {{- if .Pages -}}
-            {{ $sorted := sort .Pages "Params.rank" }} 
-            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
-                {{- $sorted = $.Paginate $sorted . -}}
-            {{- else -}}
-                {{- $sorted = .Paginate $sorted -}}
-            {{- end -}}
-            <div class="projects-grid" data-masonry>
-                <div class="grid-sizer">&nbsp;</div>
-                {{ range $sorted.Pages }}
-                    {{ if and (isset .Params "rank") (le (int .Params.rank) 3) }}
-                        {{ partial "project.html" (dict "page" .) }}
-                    {{ end }}
-                {{ end }}
-                {{ range $sorted.Pages }}
-                    {{ if not (isset .Params "rank") }}
-                        {{ partial "project.html" (dict "page" .) }}
-                    {{ end }}
-                {{ end }}
-            </div>
-            {{- partial "paginator.html" . -}}
-        {{- end -}}
+        {{ .Content }}
+        {{ partial "projects-list.html" (dict "pages_list" .Pages) }}
     </div>
-    <!-- <script src="/js/lib/masonry.pkgd.min.js"></script> -->
 {{- end -}}

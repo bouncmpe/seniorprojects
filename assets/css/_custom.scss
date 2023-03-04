@@ -31,7 +31,7 @@ a {
 .projects-page {
     max-width: 960px;
     margin: 0 auto;
-    padding-top: 60px;
+    padding-top: 90px;
 }
 
 .grid-sizer {
@@ -140,4 +140,23 @@ a {
         width: 40px;
         height: 40px;
     }
+}
+
+.img-fit {
+    height: 320px;
+    width: auto;
+    transform-origin: top 100%
+}
+
+.carousel-item {
+    background-color: #202020;
+}
+
+.content-container {
+    margin: 20px 0;
+}
+
+.header {
+    margin: 30px 0 20px 0;
+    text-transform: capitalize;
 }

@@ -1,0 +1,21 @@
+{{- /* Paginate */ -}}
+{{- if .pages_list -}}
+    {{ $sorted := sort .pages_list "Params.rank" }}
+    {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+        {{- $sorted = $.Paginate $sorted . -}}
+    {{- end -}}
+    <div class="projects-grid" data-masonry>
+        <div class="grid-sizer">&nbsp;</div>
+        {{ range $sorted }}
+            {{ if and (isset .Params "rank") (le (int .Params.rank) 3) }}
+                {{ partial "project.html" (dict "page" .) }}
+            {{ end }}
+        {{ end }}
+        {{ range $sorted }}
+            {{ if not (isset .Params "rank") }}
+                {{ partial "project.html" (dict "page" .) }}
+            {{ end }}
+        {{ end }}
+    </div>
+    {{- partial "paginator.html" . -}}
+{{- end -}}
