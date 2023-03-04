@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
-$global-font-family: 'Open Sans',#{$global-font-family};
+
+body {
+    font-family: 'Open Sans',#{$global-font-family} !important;
+}
 
 $global-link-hover-color: #27ace2;

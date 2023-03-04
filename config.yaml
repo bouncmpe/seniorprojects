@@ -25,30 +25,24 @@ params:
 
 menu:
   main:
+    - identifier: "offers"
+      pre: ""
+      post: ""
+      name: "Offered Projects"
+      url: "/offers/"
+      title: ""
+      weight: 1
     - identifier: "projects"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre: ""
       # you can add extra information after the name (HTML format is supported), such as icons
       post: ""
-      name: "Projects"
+      name: "Past Projects"
       url: "/projects/"
       # title will be shown when you hover on this menu link
       title: ""
-      weight: 1
-    - identifier: "tags"
-      pre: ""
-      post: ""
-      name: "Tags"
-      url: "/tags/"
-      title: ""
       weight: 2
-    - identifier: "categories"
-      pre: ""
-      post: ""
-      name: "Categories"
-      url: "/categories/"
-      title: ""
-      weight: 3
+    
 
 
 # Markup related configuration in Hugo
