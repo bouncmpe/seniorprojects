@@ -1,0 +1,28 @@
+{{- define "title" }}
+    Offered Projects
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page">
+        <section class="my-4">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Project Title</th>
+                        <th scope="col">Project Advisor</th>
+                        <th scope="col">Project Year</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {{ range .Pages }}
+                        <tr>
+                            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                            <td>{{ delimit .Params.advisors ", " }}</td>
+                            <td>{{ .Date.Format "2006" }}</td>
+                        </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{{- end -}}
