@@ -1,10 +1,11 @@
 a {
     text-decoration: none !important;
     color: $global-font-secondary-color !important;
+    transition: color .3s;
 
     &:hover,
     &:active {
-        color: $global-font-color !important;
+        color: $global-link-hover-color !important;
     }
 
     [theme=dark] & {
@@ -159,4 +160,11 @@ a {
 .header {
     margin: 30px 0 20px 0;
     text-transform: capitalize;
+}
+
+@media only screen and (min-width: 1000px) {
+    .page {
+        width: 80%;
+        max-width: 1000px;
+    }
 }
