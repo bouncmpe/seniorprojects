@@ -4,16 +4,15 @@
     {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
         {{- $sorted = $.Paginate $sorted . -}}
     {{- end -}}
-    <div class="projects-grid" data-masonry>
-        <div class="grid-sizer">&nbsp;</div>
+    <div class="row gy-3 gx-5">
         {{ range $sorted }}
             {{ if and (isset .Params "rank") (le (int .Params.rank) 3) }}
-                {{ partial "project.html" (dict "page" .) }}
+                {{ partial "project-card.html" (dict "page" .) }}
             {{ end }}
         {{ end }}
         {{ range $sorted }}
             {{ if not (isset .Params "rank") }}
-                {{ partial "project.html" (dict "page" .) }}
+                {{ partial "project-card.html" (dict "page" .) }}
             {{ end }}
         {{ end }}
     </div>
