@@ -1,118 +1,24 @@
 a {
     text-decoration: none !important;
-    color: $global-font-secondary-color !important;
     transition: color .3s;
-
-    &:hover,
-    &:active {
+    color: $global-link-color !important;
+    &:hover, &:active {
         color: $global-link-hover-color !important;
     }
 
     [theme=dark] & {
-        color: $global-font-secondary-color-dark;
-        background: $header-background-color-dark;
+        color: $global-link-color-dark !important;
 
-        &:hover,
-        &:active {
-            color: $global-font-color-dark;
+        &:hover, &:active {
+            color: $global-link-hover-color-dark !important;
         }
     }
 
     [theme=black] & {
-        color: $global-font-secondary-color-black;
-        background: $header-background-color-black;
+        color: $global-link-color-black !important;
 
-        &:hover,
-        &:active {
-            color: $global-font-color-black;
-        }
-    }
-}
-
-.projects-page {
-    max-width: 960px;
-    margin: 0 auto;
-    padding-top: 90px;
-}
-
-.grid-sizer {
-    height: 0;
-}
-
-.projects-grid {
-    margin: 40px 0;
-
-    a {
-        &:hover,
-        &:active {
-            color: $global-font-color;
-        }
-    }
-
-    .grid-sizer,
-    a {
-        width: 50%;
-
-        @media only screen and (max-width:600px) {
-            width: 100%;
-        }
-    }
-}
-
-.project {
-    background-color: $header-background-color;
-    padding: 30px;
-    padding-top: 0;
-    margin: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    overflow: hidden;
-    cursor: pointer;
-
-    [theme=dark] & {
-        color: $global-font-secondary-color-dark;
-        background: $header-background-color-dark;
-
-        &:hover,
-        &:active {
-            color: $global-font-color-dark;
-        }
-    }
-
-    [theme=black] & {
-        color: $global-font-secondary-color-black;
-        background: $header-background-color-black;
-
-        &:hover,
-        &:active {
-            color: $global-font-color-black;
-        }
-    }
-
-    .poster {
-        width: calc(100% + 60px);
-        margin-left: -30px;
-        margin-bottom: 10px;
-    }
-
-    &_title {
-        display: block;
-        margin-bottom: 15px;
-        margin-top: 5px;
-        transition: color .3s;
-
-        &:hover {
-            color: $global-link-hover-color;
-
-            [theme=dark] & {
-                color: $global-link-hover-color-dark;
-            }
-
-            [theme=black] & {
-                color: $global-link-hover-color-dark;
-            }
+        &:hover, &:active {
+            color: $global-link-hover-color-black !important;
         }
     }
 }
@@ -127,15 +33,15 @@ a {
 }
 
 .medal {
-    background-color: $header-background-color;
     border: 3px solid $global-border-color;
     border-radius: 50%;
     padding: 15px;
     padding-bottom: 12.5px;
     width: fit-content;
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -20px;
+    right: -20px;
+    z-index: 100;
 
     img {
         width: 40px;
@@ -157,14 +63,21 @@ a {
     margin: 20px 0;
 }
 
-.header {
-    margin: 30px 0 20px 0;
-    text-transform: capitalize;
-}
-
 @media only screen and (min-width: 1000px) {
     .page {
         width: 80%;
         max-width: 1000px;
+    }
+}
+
+.text-bg-gridcard {
+    background-color: $header-background-color !important;
+
+    [theme=dark] & {
+        background: $header-background-color-dark !important;
+    }
+
+    [theme=black] & {
+        background: $header-background-color-black !important;
     }
 }

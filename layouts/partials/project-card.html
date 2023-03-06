@@ -1,0 +1,32 @@
+<div class="col-md-6 mb-4">
+    <div class="h-100 project-link">
+        {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}
+            {{ $src := print "/images/medal-" .page.Params.rank ".png" }}
+            {{ $image := resources.Get $src }}
+            <div class="medal text-bg-gridcard">
+                <img src="{{ $image.RelPermalink }}" alt="medal" />
+            </div>
+        {{ end }}
+        <div class="card h-100 overflow-hidden text-center text-bg-gridcard">
+            {{ if .page.Params.poster }}
+                <img src="{{ .page.Params.poster }}" class="poster"/> 
+            {{ else }}
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="182" xmlns="http://www.w3.org/2000/svg"
+                    role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6"
+                        dy=".3em">Poster</text>
+                </svg>
+            {{ end }}
+            <div class="card-body">
+                <h5 class="card-title mb-2 fw-bold">
+                    <a href="{{ .page.RelPermalink }}">
+                        {{ .page.Title }}
+                    </a>
+                </h5>
+                <p class="card-text mb-1">Students: {{ delimit .page.Params.students ", " }}</p>
+                <p class="card-text">Advisors: {{ delimit .page.Params.advisors ", " }}</p>
+            </div>
+        </div>
+    </div>
+</div>

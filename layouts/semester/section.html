@@ -3,9 +3,9 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="projects-page">
-        <h1 class="mb-4">Completed Projects - {{ .Title }}</h1>
-        {{ .Content }}
-        {{ partial "projects-list.html" (dict "pages_list" .Pages) }}
+    <div class="page">
+        <h1 class="my-5 fw-semibold">Completed Projects - {{ .Title }}</h1>
+        <!-- {{ .Content }} -->
+        {{ partial "projects-grid.html" (dict "pages_list" .Pages) }}
     </div>
 {{- end -}}

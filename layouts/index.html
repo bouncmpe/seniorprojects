@@ -10,7 +10,7 @@
     {{ $all_semesters := where .Site.Pages "Type" "semester" }}
     {{ $semesters := where $all_semesters "File.Dir" "in" (slice $path) }}
 
-    <h2 class="header">Senior Projects - {{ $semester }} {{ $year }}</h2>
+    <h1 class="my-4 text-capitalize fw-semibold">Senior Projects - {{ $semester }} {{ $year }}</h1>
 
     {{ range $semesters }}
         {{ if .Params.images }}
@@ -47,7 +47,7 @@
                 </button>
             </div>
         {{ end }}
-        <section class="content-container">
+        <section class="mt-4 mb-5">
             {{ .Content }}
         </section>
     {{ end }}
@@ -56,6 +56,6 @@
     {{ $pages_path := printf "projects/%s/%s/" $year $semester }}
     {{ $pages := where .Site.RegularPages "File.Dir" "in" (slice $path) }}
 
-    {{ partial "projects-list.html" (dict "pages_list" $pages) }}
+    {{ partial "projects-grid.html" (dict "pages_list" $pages) }}
 </div>
 {{- end -}}
