@@ -1,4 +1,4 @@
-baseURL: http://example.org/
+baseURL:
 languageCode: en-us
 title: Senior Projects
 
@@ -41,7 +41,7 @@ menu:
       # title will be shown when you hover on this menu link
       title: ""
       weight: 2
-
+      
 
 # Markup related configuration in Hugo
 markup:
