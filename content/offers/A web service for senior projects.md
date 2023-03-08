@@ -1,14 +1,17 @@
 ---
-title: "A web service for senior projects"
+title: A web service for senior projects
 date: 2023-01-28T19:55:16+04:00
 draft: false
-advisors: ["Doğan Ulus"]
-authors: ["Doğan Ulus"]
+advisors:
+  - Doğan Ulus
+authors:
+  - Doğan Ulus
 type: posts
 toc:
-    enable: true
-    keepStatic: false
-    auto: true
+  enable: true
+  keepStatic: false
+  auto: true
+slug: web-service-senior-projects
 ---
 ## Summary
 In this project, you will design and implement a web service to publish senior project offers from faculty to students and disseminate the project results to a wider audience.
