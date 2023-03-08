@@ -63,13 +63,6 @@ a {
     margin: 20px 0;
 }
 
-@media only screen and (min-width: 1000px) {
-    .page {
-        width: 80%;
-        max-width: 1000px;
-    }
-}
-
 .text-bg-gridcard {
     background-color: $header-background-color !important;
 
