@@ -2,12 +2,16 @@
 title: "Bladder Segmentation to Classify the Level of Tumor Invasions According to VI-RADS"
 date: 2022-03-02T19:55:16+04:00
 draft: false
-advisors: ["Suzan Üsküdarlı", "Pınar Yanardağ"]
-students: ["Gözde Ünver", "Berkay Demirtaş", "Sabri Gökberk Yılmaz"]
-authors: ["Gözde Ünver", "Berkay Demirtaş", "Sabri Gökberk Yılmaz"]
+advisors:
+    - Suzan Üsküdarlı
+    - Pınar Yanardağ
+students: 
+    - name: Gözde Ünver
+    - name: Berkay Demirtaş
+    - name: Sabri Gökberk Yılmaz
 poster: https://www.cmpe.boun.edu.tr/sites/default/files/styles/medium/public/poster-bladder_segmentation_to_classify_the_level_of_tumor_invasions_according_to_vi-rads.jpg?itok=Tpx1k8VL
 rank: 2
-type: posts
+type: project
 toc:
     enable: true
     keepStatic: false

@@ -34,17 +34,19 @@ menu:
       url: "/offers/"
       title: ""
       weight: 1
-    - identifier: "projects"
+    - identifier: "semesters"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre: ""
       # you can add extra information after the name (HTML format is supported), such as icons
       post: ""
       name: "Past Projects"
-      url: "/projects/"
+      url: "/semesters/"
       # title will be shown when you hover on this menu link
       title: ""
       weight: 2
 
+permalinks:
+  advisors: "/advisors/:slug/"
 
 # Markup related configuration in Hugo
 markup:

@@ -2,11 +2,13 @@
 title: "Automatized Software Architecture and Dependency Graph Design"
 date: 2022-04-18T19:55:16+04:00
 draft: false
-advisors: ["Suzan Üsküdarlı", "Fatma Başak Aydemir"]
-students: ["Berk Yamanoğlu"]
-authors: ["Berk Yamanoğlu"]
+advisors: 
+    - Suzan Üsküdarlı
+    - Fatma Başak Aydemir
+students: 
+    - name: Berk Yamanoğlu
 poster: ""
-type: posts
+type: project
 toc:
     enable: true
     keepStatic: false

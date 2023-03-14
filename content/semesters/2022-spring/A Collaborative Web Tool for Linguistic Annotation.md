@@ -2,12 +2,15 @@
 title: "A Collaborative Web Tool for Linguistic Annotation"
 date: 2022-04-20T19:55:16+04:00
 draft: false
-advisors: ["Suzan Üsküdarlı", "Tunga Güngör"]
-students: ["Salih Furkan Akkurt"]
-authors: ["Salih Furkan Akkurt"]
+advisors: 
+    - Suzan Üsküdarlı
+    - Tunga Güngör
+students: 
+    - name: Salih Furkan Akkurt
+      github: furkanakkurt1335
 poster: https://www.cmpe.boun.edu.tr/sites/default/files/styles/medium/public/poster-_collaborative_web_platform_for_linguistic_annotation.jpg?itok=AKf48GG1
 rank: 1
-type: posts
+type: project
 toc:
     enable: true
     keepStatic: false

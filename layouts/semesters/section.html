@@ -1,0 +1,21 @@
+{{- define "title" }}
+    Past Projects
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title animate__animated animate__pulse animate__faster">
+            {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+        </h2>
+        {{ $baseURL := "/semesters" }}
+        {{ $all := where .Site.Pages "Section" "==" "semesters" }}
+        {{ $projects := where $all "Type" "==" "semester"}}
+
+        <ul style="text-transform: capitalize;">
+        {{ range $projects }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+        </ul>
+    </div>
+{{- end -}}
