@@ -45,8 +45,8 @@ menu:
       title: ""
       weight: 2
 
-permalinks:
-  advisors: "/advisors/:slug/"
+app:
+  noFavicon: false
 
 # Markup related configuration in Hugo
 markup:
