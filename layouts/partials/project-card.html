@@ -24,7 +24,12 @@
                         {{ .page.Title }}
                     </a>
                 </h5>
-                <p class="card-text mb-1">Students: {{ delimit .page.Params.students ", " }}</p>
+    
+                {{ $students := slice }}
+                {{ range $index, $student := .page.Params.students }}
+                    {{ $students = $students | append $student.name }}
+                {{ end }}
+                <p class="card-text mb-1">Students: {{ delimit $students ", " }}</p>
                 <p class="card-text">Advisors: {{ delimit .page.Params.advisors ", " }}</p>
             </div>
         </div>

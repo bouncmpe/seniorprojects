@@ -5,7 +5,7 @@
     {{ $year := .Params.year }}
     {{ $semester := .Params.semester }}
 
-    {{ $path := printf "projects/%s/%s/" $year $semester }}
+    {{ $path := printf "semesters/%s-%s/" $year $semester }}
 
     {{ $all_semesters := where .Site.Pages "Type" "semester" }}
     {{ $semesters := where $all_semesters "File.Dir" "in" (slice $path) }}
@@ -14,38 +14,7 @@
 
     {{ range $semesters }}
         {{ if .Params.images }}
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                <div class="carousel-indicators">
-                    {{ range $index, $element := .Params.images }}
-                        {{ $isActive := "" }}
-                        {{ if eq $index 0 }}
-                            {{ $isActive = "active" }}
-                        {{ end }}
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}" class="{{ $isActive }}" aria-label="Slide {{ add $index 1 }}"></button>
-                    {{ end }}
-                </div>
-                <div class="carousel-inner" style="text-align: center;">
-                    {{ range $index, $element := .Params.images }}
-                        {{ $isActive := "" }}
-                        {{ if eq $index 0 }}
-                            {{ $isActive = "active" }}
-                        {{ end }}
-                        <div class="carousel-item {{ $isActive }}">
-                            <img src="{{ $element }}" alt="" class="img-fit">
-                        </div>
-                    {{ end }}
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            {{ partial "carousel.html" (dict "images" .Params.images) }}
         {{ end }}
         <section class="mt-4 mb-5">
             {{ .Content }}

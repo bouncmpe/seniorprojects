@@ -2,12 +2,15 @@
 title: "Fairness and Bias in Generative Models"
 date: 2022-03-20T19:55:16+04:00
 draft: false
-advisors: ["Suzan Üsküdarlı", "Pınar Yanardağ"]
-students: ["Kıymet Akdemir", "Aleyna Kara"]
-authors: ["Kıymet Akdemir", "Aleyna Kara"]
+advisors: 
+    - Suzan Üsküdarlı
+    - Pınar Yanardağ
+students: 
+    - name: Kıymet Akdemir
+    - name: Aleyna Kara
 poster: https://www.cmpe.boun.edu.tr/sites/default/files/styles/medium/public/akdemir_492poster.jpg?itok=ES6-2FXT
 rank: 3
-type: posts
+type: project
 toc:
     enable: true
     keepStatic: false

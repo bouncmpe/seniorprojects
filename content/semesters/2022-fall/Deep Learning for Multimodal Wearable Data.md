@@ -2,11 +2,13 @@
 title: "Deep Learning for Multimodal Wearable Data"
 date: 2022-04-20T19:55:16+04:00
 draft: false
-advisors: ["Özlem Durmaz İncel", "Berrenur Saylam"]
-students: ["Ozan Kılıç"]
-authors: ["Ozan Kılıç"]
+advisors: 
+    - Özlem Durmaz İncel
+    - Berrenur Saylam
+students: 
+    - name: Ozan Kılıç
 poster: ""
-type: posts
+type: project
 toc:
     enable: true
     keepStatic: false
