@@ -51,6 +51,13 @@ menu:
       # title will be shown when you hover on this menu link
       title: ""
       weight: 3
+    - identifier: "awards"
+      pre: ""
+      post: ""
+      name: "Awards"
+      url: "/awards/"
+      title: ""
+      weight: 4
 
 app:
   noFavicon: false

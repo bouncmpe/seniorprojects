@@ -1,0 +1,19 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page">
+        <h1 class="my-4 fw-semibold">Awards</h1>
+        {{ $projects := where .Site.RegularPages "Section" "==" "semesters" }}
+        {{ $semesters := where .Site.Pages "Type" "==" "semester" }}
+        {{ range $semesters }}
+            <div class="mb-2">
+                <h3 class="mb-4">{{ .Title }}</h3>
+                {{ $ranked := where .CurrentSection.Pages "Params.rank" "le" 3 }}
+                {{ partial "projects-grid.html" (dict "pages_list" $ranked) }}
+            </div>
+        {{ end }}
+        {{ partial "projects-grid.html" (dict "pages_list" .Pages) }}
+    </div>
+{{- end -}}
