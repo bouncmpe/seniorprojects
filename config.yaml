@@ -34,6 +34,13 @@ menu:
       url: "/offers/"
       title: ""
       weight: 1
+    - identifier: "ongoing"
+      pre: ""
+      post: ""
+      name: "Ongoing Projects"
+      url: "/ongoing/"
+      title: ""
+      weight: 2
     - identifier: "semesters"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre: ""
@@ -43,7 +50,7 @@ menu:
       url: "/semesters/"
       # title will be shown when you hover on this menu link
       title: ""
-      weight: 2
+      weight: 3
 
 app:
   noFavicon: false
