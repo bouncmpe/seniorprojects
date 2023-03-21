@@ -12,6 +12,7 @@ minify:
 
 theme: github.com/HEIGE-PCloud/DoIt
 
+summaryLength: 1
 params:
   # DoIt theme version
   version: 0.2.X

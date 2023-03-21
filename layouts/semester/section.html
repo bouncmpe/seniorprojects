@@ -1,18 +1,55 @@
 {{- define "title" }}
-    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page">
-        <h1 class="my-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
-        {{ if .Params.images }}
-            {{ partial "carousel.html" (dict "images" .Params.images) }}
-        {{ end }}
-        {{ if .Content }}
-            <section class="mt-4 mb-5">
-                {{ .Content }}
-            </section>
-        {{ end }}
-        {{ partial "projects-grid.html" (dict "pages_list" .Pages) }}
+<div class="page">
+    <h1 class="my-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
+    {{ if .Params.images }}
+    {{ partial "carousel.html" (dict "images" .Params.images) }}
+    {{ end }}
+    {{ if .Content }}
+    <section class="mt-4">
+        {{ .Content }}
+    </section> 
+    {{ end }}
+    <div class="d-flex justify-content-end mb-5" style="height: 28px;">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid-2" role="img"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-grid-2 fa-lg me-3 view view-selected" id="grid">
+            <path fill="currentColor"
+                d="M192 80c0-26.5-21.5-48-48-48H48C21.5 32 0 53.5 0 80v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V80zm0 256c0-26.5-21.5-48-48-48H48c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V336zM256 80v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H304c-26.5 0-48 21.5-48 48zM448 336c0-26.5-21.5-48-48-48H304c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48V336z"
+                class=""></path>
+        </svg>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-ul" role="img"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-list-ul fa-lg view" id="list">
+            <path fill="currentColor"
+                d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"
+                class=""></path>
+        </svg>
     </div>
+
+    <section id="grid-view">
+        {{ partial "projects-grid.html" (dict "pages_list" .Pages) }}
+    </section>
+    <section id="list-view" style="display: none;">
+        {{ partial "projects-digest.html" (dict "pages_list" .Pages) }}
+    </section>
+</div>
+<script>
+    const other = {
+        "grid": "list",
+        "list": "grid"
+    }
+    document.querySelectorAll(".view").forEach(view => {
+        view.addEventListener("click", e => {
+            if (!view.classList.contains("view-selected")) {
+                const el = document.querySelector(".view.view-selected");
+                el.classList.remove("view-selected");
+                view.classList.add("view-selected");
+                document.getElementById(`${view.id}-view`).style.display = "block";
+                document.getElementById(`${other[view.id]}-view`).style.display = "none";
+            }
+        })
+    })
+</script>
 {{- end -}}
