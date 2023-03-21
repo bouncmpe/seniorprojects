@@ -2,6 +2,7 @@ baseURL: http://example.org/
 languageCode: en-us
 title: Senior Projects
 
+
 # Change the default theme to be use when building the site with Hugo
 module:
   imports:
@@ -62,6 +63,7 @@ menu:
 
 app:
   noFavicon: false
+
 
 # Markup related configuration in Hugo
 markup:
