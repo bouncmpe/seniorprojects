@@ -21,10 +21,7 @@
         </section>
     {{ end }}
     
-    
-    {{ $pages_path := printf "projects/%s/%s/" $year $semester }}
     {{ $pages := where .Site.RegularPages "File.Dir" "in" (slice $path) }}
-
     {{ partial "projects-grid.html" (dict "pages_list" $pages) }}
 </div>
 {{- end -}}

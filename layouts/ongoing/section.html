@@ -1,0 +1,31 @@
+{{- define "title" }}
+    Offered Projects
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page">
+        <h1 class="my-4 fw-semibold">Ongoing Senior Projects</h1>
+        <section>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Project Title</th>
+                        <th scope="col">Project Advisor</th>
+                        <th scope="col">Students</th>
+                        <th scope="col">Course</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {{ range .Pages }}
+                        <tr>
+                            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                            <td>{{ delimit .Params.advisors ", " }}</td>
+                            <td>{{ delimit .Params.students ", " }}</td>
+                            <td>CMPE{{ .Params.course }}</td>
+                        </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{{- end -}}

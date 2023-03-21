@@ -74,3 +74,28 @@ a {
         background: $header-background-color-black !important;
     }
 }
+
+.view {
+    transition: color .3s;
+    cursor: pointer;
+
+    &:hover, &:active, &.view-selected {
+        color: $global-link-hover-color !important;
+    }
+
+    [theme=dark] & {
+        color: $global-link-color-dark !important;
+
+        &:hover, &:active, &.view-selected {
+            color: $global-link-hover-color-dark !important;
+        }
+    }
+
+    [theme=black] & {
+        color: $global-link-color-black !important;
+
+        &:hover, &:active, &.view-selected {
+            color: $global-link-hover-color-black !important;
+        }
+    }
+}

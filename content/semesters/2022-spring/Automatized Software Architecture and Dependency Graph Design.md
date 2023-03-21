@@ -9,6 +9,7 @@ students:
     - name: Berk Yamanoğlu
 poster: ""
 type: project
+summary: "We will work on project: Automatized Software Architecture and Dependency Graph Design"
 toc:
     enable: true
     keepStatic: false

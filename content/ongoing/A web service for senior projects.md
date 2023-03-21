@@ -6,6 +6,10 @@ advisors:
   - Doğan Ulus
 authors:
   - Doğan Ulus
+students:
+  - Nurlan Dadashov
+  - Burak Yılmaz
+course: 492
 type: posts
 toc:
   enable: true
