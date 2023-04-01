@@ -2,68 +2,37 @@ baseURL: http://example.org/
 languageCode: en-us
 title: Senior Projects
 
-
-# Change the default theme to be use when building the site with Hugo
 module:
   imports:
-  - path: github.com/HEIGE-PCloud/DoIt
+  - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
 
 minify:
   disableJSON: true
 
-theme: github.com/HEIGE-PCloud/DoIt
-
 summaryLength: 1
-params:
-  # DoIt theme version
-  version: 0.2.X
-  paginate: 2
-  page:
-    toc:
-      enable: true
-    library:
-      js:
-        bootstrap: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-      css:
-        bootstrap: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 
 menu:
   main:
     - identifier: "offers"
-      pre: ""
-      post: ""
       name: "Offered Projects"
       url: "/offers/"
       title: ""
       weight: 1
     - identifier: "ongoing"
-      pre: ""
-      post: ""
       name: "Ongoing Projects"
       url: "/ongoing/"
       title: ""
       weight: 2
     - identifier: "semesters"
-      # you can add extra information before the name (HTML format is supported), such as icons
-      pre: ""
-      # you can add extra information after the name (HTML format is supported), such as icons
-      post: ""
       name: "Past Projects"
       url: "/semesters/"
-      # title will be shown when you hover on this menu link
       title: ""
       weight: 3
     - identifier: "awards"
-      pre: ""
-      post: ""
       name: "Awards"
       url: "/awards/"
       title: ""
       weight: 4
-
-app:
-  noFavicon: false
-
 
 # Markup related configuration in Hugo
 markup:
