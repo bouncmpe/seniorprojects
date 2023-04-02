@@ -27,5 +27,3 @@ In this project you will develop the next version of BoAT as a web application w
 [1] Türk, U., Atmaca, F., Özateş, Ş.B., Berk, G., Bedir, S.T., Köksal, A., Öztürk, B., Güngör, T. and Özgür, A., Resources for Turkish Dependency Parsing: Introducing the BOUN Treebank and the BoAT Annotation Tool, Language Resources and Evaluation, 2021. (in press)
 
 [2] Universal Dependencies Format
-
-{{< youtube 5OD3j2mlMzc >}}

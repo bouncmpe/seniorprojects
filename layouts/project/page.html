@@ -1,0 +1,108 @@
+{{- define "title" }}
+    {{ .Title }} - {{ .Site.Title }}
+{{ end -}}
+
+{{- define "content" -}}
+    <style>
+        .project-post .container, .project-post .content > *:not(:has(img), :has(iframe)) {
+            margin-left: 0;
+        }
+    </style>
+    <article class="project-post">
+        <div class="container mb-3" style="padding-left: 8px;">
+            <nav class="breadcrumbs" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    {{- range $index, $value := .Ancestors.Reverse }}
+                        {{ if not (eq $index 0) }}
+                        <li class="breadcrumb-item">
+                            <a href="{{ .RelPermalink }}">
+                                {{ $value.Title }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    {{- end }}
+                    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container mini-container">
+            <h1 class="fw-bold mt-5">{{ .Title }}</h1>
+            <p class="subhead">
+                {{ .Summary }}
+            </p>
+            <div class="bottom">
+                <span class="post-author d-flex">
+                    {{ range $index, $student := .Params.students }}
+                        {{ $image := "" }}
+                        {{ $url := "" }}
+                        {{ if $student.github }}
+                            {{ $image = printf "https://github.com/%s.png" $student.github }}
+                            {{ $url = printf "https://github.com/%s" $student.github }}
+                        {{ end }}
+                        {{ if $student.image }}
+                            {{ $image = $student.image }}
+                        {{ end }}
+                        {{ if $student.url }}
+                            {{ $url = $student.url }}
+                        {{ end }}
+                        {{ if not $image }}
+                            {{ $avatar := resources.Get "/images/avatar.jpeg" }}
+                            {{ $image = $avatar.RelPermalink }}
+                        {{ end }}
+                        <div class="d-flex align-items-center me-1">
+                            <img src="{{ $image }}" class="rounded-circle shadow-sm" style="width: 32px; height: 32px;" alt="Avatar" />
+                            {{ if $url }}
+                                <a href="{{ $url }}" class="mx-2">{{ $student.name }}</a>
+                            {{ else }}
+                                <span class="mx-2">{{ $student.name }}</span>
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                </span>
+            </div>
+        </div>
+        <div class="right-side d-none d-lg-block" id="lightgallery-lg">
+            {{ if isset .Params "poster" }}
+            <div class="mt-1">
+                <figure class="figure" data-src="{{ .Params.poster }}">
+                    <img src="{{ .Params.poster }}" alt="poster" />
+                </figure>
+            </div>
+            {{ end }}
+            {{ if isset .Params "youtube" }}
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/{{ .Params.youtube }}" frameborder="0"></iframe>
+                </div>
+            {{ end }}
+        </div>
+        <section id="lightgallery">
+            {{ if isset .Params "poster" }}
+            <div class="container mt-5 mb-3 d-lg-none">
+                <figure class="figure" data-src="{{ .Params.poster }}">
+                    <img src="{{ .Params.poster }}" alt="poster" />
+                    <figcaption class="figure-caption text-center">Poster</figcaption>
+                </figure>
+            </div>
+            {{ end }}
+            
+            <div class="container content mt-3">
+                {{ .Content }}
+
+                {{ if isset .Params "youtube" }}
+                    <div class="video-container d-lg-none">
+                        <iframe src="https://www.youtube.com/embed/{{ .Params.youtube }}" frameborder="0"></iframe>
+                    </div>
+                {{ end }}
+            </div>
+        </section>
+    </article>
+    <script>
+        const params = {
+            plugins: [lgVideo, lgZoom],
+            thumbnail: true,
+            selector: 'img, iframe',
+        }
+        lightGallery(document.getElementById('lightgallery'), params);
+        lightGallery(document.getElementById('lightgallery-lg'), params);
+    </script>
+{{- end -}}
