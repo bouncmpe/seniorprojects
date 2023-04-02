@@ -23,6 +23,4 @@ In this project you will design and implement a tool to assist the creation of s
  
 This project will form the foundations of a subsequent senior project. The main goal of this project is to establish the conceptional foundations, and identify the requirements and to design the prototype that will be implemented during the senior project.
 
-## Project Poster
-{{< image src="https://www.cmpe.boun.edu.tr/sites/default/files/poster-bladder_segmentation_to_classify_the_level_of_tumor_invasions_according_to_vi-rads.jpg" caption="Poster" height="1562" width="2450">}}
 

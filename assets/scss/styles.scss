@@ -1,0 +1,237 @@
+@import "bootstrap/bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+body {
+    font-family: 'Inter',
+    var(--#{$prefix}body-font-family) !important;
+    color: #1d1d1f;
+}
+
+$base-color: #004281;
+$active-color: #27ace2;
+$faded: #6f6f6f;
+
+.department-title {
+    color: $base-color;
+    font-family: 'Merriweather';
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-left: 2.5px;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.main {
+    .container {
+        max-width: 960px;
+    }
+
+    .mini-container {
+        max-width: 653px;
+    }
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none;
+    transition: all .5s;
+
+    &:hover {
+        color: $active-color !important;
+    }
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    margin: 0;
+
+    .nav-link {
+        margin-left: 8px;
+        margin-right: 32px;
+        font-family: 'Merriweather';
+        font-weight: 400;
+    }
+}
+
+//
+// Underline
+//
+.nav-underline {
+    gap: 1rem;
+
+    .nav-link {
+        padding-right: 0;
+        padding-left: 0;
+        border-bottom: 0.125rem solid transparent;
+
+        &:hover,
+        &:focus {
+            border-bottom-color: currentcolor;
+        }
+    }
+
+    .nav-link.active,
+    .show>.nav-link {
+        font-weight: $font-weight-bold;
+        color: var(--#{$prefix}-emphasis-color);
+        border-bottom-color: currentcolor;
+    }
+}
+
+
+.breadcrumb {
+    flex-wrap: nowrap;
+}
+
+.breadcrumb-item {
+    white-space: nowrap;
+
+    &:not(:last-of-type) {
+        flex-shrink: 0;
+    }
+
+    &:last-of-type {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    &.active {
+        color: #000;
+    }
+
+    &:not(.active) {
+        color: $faded !important;
+    }
+}
+
+.project-post {
+    line-height: 1.7;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Merriweather';
+    }
+
+    img {
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .date {
+        color: #6e6e73;
+        margin-bottom: 5px;
+    }
+
+    .subhead {
+        letter-spacing: 1.2px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .bottom {
+        border-top: 1px solid #e2e2e2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+
+    .figure-caption {
+        color: $faded;
+    }
+
+    .content>*:not(:has(img), :has(iframe)) {
+        max-width: 653px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content img {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .content div:has(iframe) {
+        margin-top: 36px;
+        margin-bottom: 36px;
+    }
+}
+
+.right-side {
+    position: absolute;
+    top: 150px;
+    right: 30px;
+    width: calc(100vw - ((100vw - 960px) / 2 + 653px) - 120px);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.project-link {
+    position: relative;
+    transition: transform .3s;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.03);
+    }
+}
+
+.medal {
+    border: 3px solid #f0f0f0;
+    border-radius: 50%;
+    padding: 15px;
+    padding-bottom: 12.5px;
+    width: fit-content;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: 100;
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.text-bg-gridcard {
+    background-color: #f8f8f8 !important;
+}
+
+.img-fit {
+    height: 320px;
+    width: auto;
+    transform-origin: top 100%
+}
+
+.carousel-item {
+    background-color: #202020;
+}
+
+.content-container {
+    margin: 20px 0;
+}
+
+.view {
+    cursor: pointer;
+}

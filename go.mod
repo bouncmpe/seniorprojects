@@ -3,6 +3,6 @@ module github.com/bouncmpe/seniorprojects
 go 1.20
 
 require (
-	github.com/CaiJimmy/hugo-theme-stack/v3 v3.16.0 // indirect
-	github.com/HEIGE-PCloud/DoIt v0.3.0 // indirect
+	github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20000 // indirect
+	github.com/twbs/bootstrap v5.3.0-alpha1+incompatible // indirect
 )
