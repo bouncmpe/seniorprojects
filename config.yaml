@@ -11,6 +11,10 @@ minify:
 
 summaryLength: 1
 
+params:
+  year: "2022"
+  semester: "spring"
+
 menu:
   main:
     - identifier: "offers"

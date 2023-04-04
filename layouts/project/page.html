@@ -7,6 +7,10 @@
         .project-post .container, .project-post .content > *:not(:has(img), :has(iframe)) {
             margin-left: 0;
         }
+
+        .project-post .content > * {
+            max-width: 653px;
+        }
     </style>
     <article class="project-post">
         <div class="container mb-3" style="padding-left: 8px;">
@@ -31,34 +35,9 @@
                 {{ .Summary }}
             </p>
             <div class="bottom">
-                <span class="post-author d-flex">
-                    {{ range $index, $student := .Params.students }}
-                        {{ $image := "" }}
-                        {{ $url := "" }}
-                        {{ if $student.github }}
-                            {{ $image = printf "https://github.com/%s.png" $student.github }}
-                            {{ $url = printf "https://github.com/%s" $student.github }}
-                        {{ end }}
-                        {{ if $student.image }}
-                            {{ $image = $student.image }}
-                        {{ end }}
-                        {{ if $student.url }}
-                            {{ $url = $student.url }}
-                        {{ end }}
-                        {{ if not $image }}
-                            {{ $avatar := resources.Get "/images/avatar.jpeg" }}
-                            {{ $image = $avatar.RelPermalink }}
-                        {{ end }}
-                        <div class="d-flex align-items-center me-1">
-                            <img src="{{ $image }}" class="rounded-circle shadow-sm" style="width: 32px; height: 32px;" alt="Avatar" />
-                            {{ if $url }}
-                                <a href="{{ $url }}" class="mx-2">{{ $student.name }}</a>
-                            {{ else }}
-                                <span class="mx-2">{{ $student.name }}</span>
-                            {{ end }}
-                        </div>
-                    {{ end }}
-                </span>
+                <div class="post-author d-flex">
+                    {{ partial "students.html" (dict "students" .Params.students) }}
+                </div>
             </div>
         </div>
         <div class="right-side d-none d-lg-block" id="lightgallery-lg">
