@@ -4,25 +4,9 @@
 
 {{- define "content" -}}
     <article class="project-post">
-        <div class="container mb-3" style="padding-left: 8px;">
-            <nav class="breadcrumbs" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    {{- range $index, $value := .Ancestors.Reverse }}
-                        {{ if not (eq $index 0) }}
-                        <li class="breadcrumb-item">
-                            <a href="{{ .RelPermalink }}">
-                                {{ $value.Title }}
-                            </a>
-                        </li>
-                        {{ end }}
-                    {{- end }}
-                    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
-                </ol>
-            </nav>
-        </div>
+        {{ partial "breadcrumbs.html" . }}
         <div class="container mini-container">
-            <p class="date mt-5">{{ .Date.Format "January 2, 2006" }}</p>
-            <h1 class="fw-bold">{{ .Title }}</h1>
+            <h1 class="fw-bold mt-5">{{ .Title }}</h1>
             <p class="subhead">
                 {{ .Summary }}
             </p>
@@ -33,8 +17,8 @@
             </div>
         </div>
         <section id="lightgallery">
-            {{ if isset .Params "poster" }}
-            <div class="container mt-5 mb-3">
+            {{ if .Params.poster }}
+            <div class="container mt-5 mb-3 d-flex justify-content-center">
                 <figure class="figure" data-src="{{ .Params.poster }}">
                     <img src="{{ .Params.poster }}" alt="poster" />
                     <figcaption class="figure-caption text-center">Poster</figcaption>
