@@ -108,17 +108,21 @@ a {
     }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Merriweather';
+}
+
+.container.mini-container {
+    padding: 0;
+}
+
 .project-post {
     line-height: 1.7;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Merriweather';
-    }
 
     img {
         width: 100%;
@@ -167,7 +171,7 @@ a {
 
 .right-side {
     position: absolute;
-    top: 150px;
+    top: 260px;
     right: 30px;
     width: calc(100vw - ((100vw - 960px) / 2 + 653px) - 120px);
 }
@@ -186,7 +190,17 @@ a {
     height: 100%;
 }
 
+.subHTML {
+    background-color: #000;
 
+    h3 {
+        font-family: 'Merriweather';
+    }
+
+    * {
+        font-family: 'Inter'
+    }
+}
 
 .project-link {
     position: relative;

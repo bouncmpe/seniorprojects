@@ -1,10 +1,11 @@
 {{- define "title" }}
-{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+    {{- .Title }} - {{ .Site.Title -}}
 {{- end -}}
 
 {{- define "content" -}}
 <div class="page">
-    <h1 class="my-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="mb-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
     {{ if .Params.images }}
     {{ partial "carousel.html" (dict "images" .Params.images) }}
     {{ end }}

@@ -8,6 +8,9 @@
     </div>
 </header>
 
+{{ $all := where .Site.Pages "Section" "==" "semesters" }}
+{{ $semesters := where $all "Type" "==" "semester"}}
+                            
 <nav class="navbar navbar-expand-md sticky-top">
     <div class="container">
         <a class="navbar-brand d-md-none" href="#">
@@ -40,14 +43,20 @@
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            {{ range $semesters }}
+                                <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                            {{ end }}
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>
                         </ul>
                     </li>
                     {{ end }}
                 {{- end -}}
-                
+                <li class="nav-item" id="digest-button" style="cursor: pointer;">
+                    <a class="nav-link">
+                        Digest
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

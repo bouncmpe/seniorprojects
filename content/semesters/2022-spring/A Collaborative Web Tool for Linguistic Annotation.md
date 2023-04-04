@@ -12,6 +12,7 @@ poster: https://www.cmpe.boun.edu.tr/sites/default/files/poster-_collaborative_w
 youtube: 5OD3j2mlMzc
 rank: 1
 type: project
+layout: page
 toc:
     enable: true
     keepStatic: false
