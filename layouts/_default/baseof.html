@@ -37,7 +37,7 @@
     {{ $styles := resources.Get "scss/styles.scss" }}
     {{ $styles = $styles | resources.ToCSS $options }}
     {{ if hugo.IsProduction }}
-    {   { $styles = $styles | fingerprint }}
+        {{ $styles = $styles | fingerprint }}
     {{ end }}
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 
