@@ -39,7 +39,7 @@
                     {{- end -}}
                     {{ if not (eq .Identifier "semesters") }}
                     <li class="nav-item">
-                        <a class="nav-link{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}"
+                        <a class="nav-link{{ if eq $.Section .Identifier }} active{{ end }}"
                             href="{{ $url }}" {{ with .Title }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }}
                             rel="noopener noreferrer" target="_blank" {{ end }}>
                             {{ .Name }}

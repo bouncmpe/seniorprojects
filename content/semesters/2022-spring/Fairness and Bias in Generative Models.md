@@ -8,7 +8,7 @@ advisors:
 students: 
     - name: Kıymet Akdemir
     - name: Aleyna Kara
-poster: https://www.cmpe.boun.edu.tr/sites/default/files/styles/medium/public/akdemir_492poster.jpg?itok=ES6-2FXT
+poster: https://www.cmpe.boun.edu.tr/sites/default/files/akdemir_492poster.jpg
 rank: 3
 type: project
 toc:

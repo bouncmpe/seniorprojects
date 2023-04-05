@@ -4,18 +4,11 @@ date: 2023-01-28T19:55:16+04:00
 draft: false
 advisors:
   - Doğan Ulus
-authors:
-  - Doğan Ulus
 students:
-  - Nurlan Dadashov
-  - Burak Yılmaz
+  - name: Nurlan Dadashov
+  - name: Burak Yılmaz
 course: 492
-type: posts
-toc:
-  enable: true
-  keepStatic: false
-  auto: true
-slug: web-service-senior-projects
+type: project
 ---
 ## Summary
 In this project, you will design and implement a web service to publish senior project offers from faculty to students and disseminate the project results to a wider audience.

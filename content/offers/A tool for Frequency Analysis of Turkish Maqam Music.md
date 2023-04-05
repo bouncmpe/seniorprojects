@@ -4,14 +4,6 @@ date: 2022-04-28T19:55:16+04:00
 draft: false
 advisors:
   - Fatma Başak Aydemir
-authors:
-  - Fatma Başak Aydemir
-type: posts
-toc:
-  enable: true
-  keepStatic: false
-  auto: true
-slug: tool-frequency-analysis-turkish-maqam-music
 ---
 
 ## Summary
