@@ -10,7 +10,7 @@
 
 {{ $all := where .Site.Pages "Section" "==" "semesters" }}
 {{ $semesters := where $all "Type" "==" "semester"}}
-                            
+
 <nav class="navbar navbar-expand-md sticky-top">
     <div class="container">
         <a class="navbar-brand d-md-none" href="#">
@@ -19,45 +19,68 @@
                 <h5 class="department-title mt-2 ms-2 d-none d-sm-block">Computer Engineering</h5>
             </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="nav nav-underline container-fluid">
-                {{- range .Site.Menus.main -}}
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
+                <button type="button" class="btn-close me-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="nav nav-underline container-fluid">
+                    {{- range .Site.Menus.main -}}
                     {{- $url := .URL | relLangURL -}}
                     {{- with .Page -}}
-                        {{- $url = .RelPermalink -}}
+                    {{- $url = .RelPermalink -}}
                     {{- end -}}
                     {{ if not (eq .Identifier "semesters") }}
                     <li class="nav-item">
-                        <a class="nav-link{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank"{{ end }}>
+                        <a class="nav-link{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}"
+                            href="{{ $url }}" {{ with .Title }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }}
+                            rel="noopener noreferrer" target="_blank" {{ end }}>
                             {{ .Name }}
                         </a>
                     </li>
                     {{ else }}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle{{ if eq $.Section "semesters" }} active{{ end }}" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                    <li class="nav-item dropdown d-none d-md-block">
+                        <a class="nav-link dropdown-toggle{{ if eq $.Section "semesters" }} active{{ end }}" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu">
                             {{ range $semesters }}
-                                <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                            <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ relURL " semesters" }}">All Semesters</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown d-md-none">
+                        <a class="nav-link dropdown-toggle{{ if eq $.Section "semesters" }} active{{ end }}" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            {{ .Name }}
+                        </a>
+                        <ul class="collapse list-group list-group-flush mt-2" id="collapseExample">
+                            {{ range $semesters }}
+                            <li class="list-group-item"><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                            {{ end }}
+                            <li class="list-group-item"><a class="dropdown-item" href="{{ relURL " semesters" }}">All Semesters</a></li>
                         </ul>
                     </li>
                     {{ end }}
-                {{- end -}}
-                <li class="nav-item" id="digest-button" style="cursor: pointer;">
-                    <a class="nav-link">
-                        Digest
-                    </a>
-                </li>
-            </ul>
+                    {{- end -}}
+                    <li class="nav-item" id="digest-button" style="cursor: pointer;">
+                        <a class="nav-link">
+                            Digest
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav> 

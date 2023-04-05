@@ -202,6 +202,19 @@ h6 {
     }
 }
 
+#offcanvasNavbar {
+    height: 100vh;
+}
+
+@include media-breakpoint-down(md) {
+    .navbar .nav-item {
+        width: 100%;
+
+        .nav-link {
+            width: fit-content;
+        }
+    }
+}
 .project-link {
     position: relative;
     transition: transform .3s;
