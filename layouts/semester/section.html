@@ -3,7 +3,12 @@
 {{- end -}}
 
 {{- define "content" -}}
-<div class="page">
+<style>
+    .wrapper {
+        background-color: #F5F5F7
+    }
+</style>
+<div class="page pb-4">
     {{ partial "breadcrumbs.html" . }}
     <h1 class="mb-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
     {{ if .Params.images }}
@@ -14,7 +19,7 @@
         {{ .Content }}
     </section> 
     {{ end }}
-    <div class="d-flex justify-content-end mb-5" style="height: 28px;">
+    <div class="d-flex justify-content-end mb-4" style="height: 28px;">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid-2" role="img"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-grid-2 fa-lg me-3 view view-selected" id="grid">
             <path fill="currentColor"

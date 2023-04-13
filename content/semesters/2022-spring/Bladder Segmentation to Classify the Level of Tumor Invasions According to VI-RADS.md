@@ -12,10 +12,6 @@ students:
 poster: https://www.cmpe.boun.edu.tr/sites/default/files/poster-bladder_segmentation_to_classify_the_level_of_tumor_invasions_according_to_vi-rads.jpg
 rank: 2
 type: project
-toc:
-    enable: true
-    keepStatic: false
-    auto: true
 ---
 
 ## Summary

@@ -10,10 +10,6 @@ students:
 poster: ""
 type: project
 rank: 1
-toc:
-    enable: true
-    keepStatic: false
-    auto: true
 ---
 
 ## Summary

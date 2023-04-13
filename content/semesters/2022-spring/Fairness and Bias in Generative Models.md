@@ -11,10 +11,6 @@ students:
 poster: https://www.cmpe.boun.edu.tr/sites/default/files/akdemir_492poster.jpg
 rank: 3
 type: project
-toc:
-    enable: true
-    keepStatic: false
-    auto: true
 ---
 
 ## Summary

@@ -68,10 +68,20 @@
         {{- partial "header.html" . -}}
         <main class="main">
             <div class="container">
-                {{- block "content" . }}{{ end -}}
-                {{ partial "search-modal.html" }}
+                <div class="page">
+                    <h1 class="mb-4 fw-semibold">{{ .Title }}</h1>
+                </div>
+                {{ $projects := where .Pages "Section" "==" "semesters" }}
+                
+                {{ range $projects }}
+                    {{ $list := .Pages }}
+                    {{ range first 1 .Ancestors }}
+                        {{ . }}
+                    {{ end }} <br />
+                {{ end }}
+                
+                {{ partial "projects-grid.html" (dict "pages_list" $projects) }}
             </div>
-            
         </main>
         {{- partial "footer.html" . -}}
         

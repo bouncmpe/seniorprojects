@@ -3,19 +3,25 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page archive">
+    <style>
+        .wrapper {
+            background-color: #F5F5F7
+        }
+    </style>
+    <div class="page pb-4">
         {{- /* Title */ -}}
         <h2 class="single-title animate__animated animate__pulse animate__faster">
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
         </h2>
 
-        {{ $all := where .Site.Pages "Section" "==" "semesters" }}
-        {{ $projects := where $all "Type" "==" "semester"}}
-
-        <ul style="text-transform: capitalize;">
-        {{ range $projects }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ $semesters := where .Site.Pages "Type" "==" "semester" }}
+        {{ range $semesters }}
+            <div class="mb-2">
+                <h3 class="mb-4">{{ .Title }}</h3>
+                {{ range .CurrentSection.Pages.ByTitle }}
+                    {{ partial "project-list-card.html" (dict "page" .) }}
+                {{ end }}
+            </div>
         {{ end }}
-        </ul>
     </div>
 {{- end -}}

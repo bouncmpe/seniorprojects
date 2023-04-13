@@ -3,22 +3,22 @@
         {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}
             {{ $src := print "/images/medal-" .page.Params.rank ".png" }}
             {{ $image := resources.Get $src }}
-            <div class="medal text-bg-gridcard">
+            <div class="medal">
                 <img src="{{ $image.RelPermalink }}" alt="medal" />
             </div>
         {{ end }}
-        <div class="card h-100 overflow-hidden text-center text-bg-gridcard">
+        <div class="card h-100 overflow-hidden">
             {{ if .page.Params.poster }}
-                <img src="{{ .page.Params.poster }}" class="poster"/> 
+                <img data-src="{{ .page.Params.poster }}" class="poster lazyload"/> 
             {{ else }}
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="182" xmlns="http://www.w3.org/2000/svg"
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="266" xmlns="http://www.w3.org/2000/svg"
                     role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
                     <title>Placeholder</title>
                     <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6"
                         dy=".3em">Poster</text>
                 </svg>
             {{ end }}
-            <div class="card-body">
+            <div class="card-body p-4">
                 <h5 class="card-title mb-2 fw-bold">
                     <a href="{{ .page.RelPermalink }}">
                         {{ .page.Title }}
@@ -29,8 +29,8 @@
                 {{ range $index, $student := .page.Params.students }}
                     {{ $students = $students | append $student.name }}
                 {{ end }}
-                <p class="card-text mb-1">Students: {{ delimit $students ", " }}</p>
-                <p class="card-text">Advisors: {{ delimit .page.Params.advisors ", " }}</p>
+                <p class="card-text mb-1"><span class="fw-semibold">Students:</span> {{ delimit $students ", " }}</p>
+                <p class="card-text"><span class="fw-semibold">Advisors:</span> {{ delimit .page.Params.advisors ", " }}
             </div>
         </div>
     </div>

@@ -1,37 +1,23 @@
-<header class="d-none d-md-block">
-    <div class="container mt-3 mb-1 d-flex align-items-center">
-        <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="80px" alt="...">
-        <div class="ms-3">
-            <img class="mt-2" src='{{ (resources.Get "/images/logotype.svg").RelPermalink }}' height="18px" alt="...">
-            <h5 class="department-title mt-1">Computer Engineering</h5>
-        </div>
-    </div>
-</header>
-
 {{ $all := where .Site.Pages "Section" "==" "semesters" }}
 {{ $semesters := where $all "Type" "==" "semester"}}
 
 <nav class="navbar navbar-expand-md sticky-top">
     <div class="container">
-        <a class="navbar-brand d-md-none" href="#">
-            <div class="d-flex align-items-center">
-                <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
-                <h5 class="department-title mt-2 ms-2 d-none d-sm-block">Computer Engineering</h5>
-            </div>
+        <a class="navbar-brand" href='{{ relURL "/" }}'>
+            <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: #fff;">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
                 <button type="button" class="btn-close me-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <ul class="nav nav-underline container-fluid">
+                <ul class="nav container-fluid">
                     {{- range .Site.Menus.main -}}
                     {{- $url := .URL | relLangURL -}}
                     {{- with .Page -}}
@@ -58,7 +44,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ relURL " semesters" }}">All Semesters</a></li>
+                            <li><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown d-md-none">
@@ -69,17 +55,23 @@
                             {{ range $semesters }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
-                            <li class="list-group-item"><a class="dropdown-item" href="{{ relURL " semesters" }}">All Semesters</a></li>
+                            <li class="list-group-item"><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>
                         </ul>
                     </li>
                     {{ end }}
                     {{- end -}}
-                    <li class="nav-item" id="digest-button" style="cursor: pointer;">
+                    <!-- <li class="nav-item" id="digest-button" style="cursor: pointer;">
                         <a class="nav-link">
-                            Digest
+                            Latest Projects
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
+                <div class="nav-item" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer;" class="float-end">
+                    <a class="nav-link" style="margin-top: 8px;">
+                        {{ partial "search.html" }}
+                    </a>
+                </div>
+                
             </div>
         </div>
     </div>

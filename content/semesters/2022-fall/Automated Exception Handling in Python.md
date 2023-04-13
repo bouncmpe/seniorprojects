@@ -3,7 +3,7 @@ title: Automated Exception Handling in Python
 date: 2022-04-20T19:55:16+04:00
 draft: false
 advisors:
-- Fatma Başak Aydemir
+  - Fatma Başak Aydemir
 students:
   - name: Fikri Cem Yılmaz
   - name: Yağmur Göktaş

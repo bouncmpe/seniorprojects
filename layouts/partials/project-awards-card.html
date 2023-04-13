@@ -1,0 +1,33 @@
+<div class="mb-4 h-100" style="position: relative;">
+    {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}
+        {{ $src := print "/images/medal-" .page.Params.rank ".png" }}
+        {{ $image := resources.Get $src }}
+        <div class="medal">
+            <img src="{{ $image.RelPermalink }}" alt="medal" />
+        </div>
+    {{ end }}
+    <div class="card h-100">
+        <div class="row g-0">
+            <div class="card-body px-4 pt-4 pb-0 me-5">
+                <h5 class="card-title mb-3 fw-bold">
+                    <a href="{{ .page.RelPermalink }}">
+                        {{ .page.Title }}
+                    </a>
+                </h5>
+                {{ $students := slice }}
+                {{ range $index, $student := .page.Params.students }}
+                {{ $students = $students | append $student.name }}
+                {{ end }}
+                <p class="fw-semibold mb-1">Students:</p> 
+                {{ range $students  }}
+                    <p class="mb-1">{{ . }}</p>
+                {{ end }}
+                <p class="fw-semibold mb-1 mt-3">Advisors:</p> 
+                {{ range .page.Params.advisors  }}
+                    <p class="mb-1">{{ . }}</p>
+                {{ end }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

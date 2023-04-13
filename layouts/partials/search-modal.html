@@ -1,0 +1,42 @@
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="d-flex search" role="search">
+                    {{ partial "search.html" }}
+                    <input id="search" type="search" placeholder="Search" aria-label="Search" autofocus>
+                </form>
+                <div class="list-group" id="results"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    async function initPF() {
+        const pagefind = await import("/_pagefind/pagefind.js");
+
+        document.getElementById("search").oninput = async function (e) {
+            const query = e.target.value;
+            const search = await pagefind.search(query);
+            const promises = search.results.map((res) => res.data());
+            const results = await Promise.allSettled(promises)
+            let search_results = ""
+            results.forEach(result => {
+                if (result && result.status === "fulfilled" && result.value) {
+                    console.log(result.value)
+                    search_results += `<a href="${result.value?.url}" class="list-group-item list-group-item-action">${result.value?.meta?.title}</a>`;
+                }
+            })
+            if (search_results) {
+                document.getElementById("results").classList.add("mt-3")
+            }
+            else {
+                document.getElementById("results").classList.remove("mt-3")
+            }
+            
+            document.getElementById("results").innerHTML = search_results;
+        }
+    }
+
+    initPF()
+</script>

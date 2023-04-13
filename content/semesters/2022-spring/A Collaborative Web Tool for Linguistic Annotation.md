@@ -12,11 +12,7 @@ poster: https://www.cmpe.boun.edu.tr/sites/default/files/poster-_collaborative_w
 youtube: 5OD3j2mlMzc
 rank: 1
 type: project
-layout: page
-toc:
-    enable: true
-    keepStatic: false
-    auto: true
+# layout: page
 ---
 
 A Web Application for Annotating Dependency Parse Treebanks BoAT (Bogazici University Annotation Tool) [1] is an open-source annotation desktop tool designed for manual annotation of sentences in dependency parse format. It has been developed in the scope of a TÜBİTAK project and was implemented in Python 3. It is used by annotators in several projects to annotate the Turkish treebanks in the UD (Universal Dependencies) framework [2].
