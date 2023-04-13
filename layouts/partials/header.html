@@ -6,10 +6,16 @@
         <a class="navbar-brand" href='{{ relURL "/" }}'>
             <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: #fff;">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="d-flex d-md-none">
+            <div class="me-3" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer; margin-top: 8px; color: #fff;">
+                {{ partial "search.html" }}
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: #fff;">
+                <span class="navbar-toggler-icon"></span>
+            </button>  
+        </div>
+        
 
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
@@ -66,7 +72,7 @@
                         </a>
                     </li> -->
                 </ul>
-                <div class="nav-item" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer;" class="float-end">
+                <div class="nav-item d-none d-md-block" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer;">
                     <a class="nav-link" style="margin-top: 8px;">
                         {{ partial "search.html" }}
                     </a>

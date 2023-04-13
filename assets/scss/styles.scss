@@ -76,7 +76,7 @@ a {
 }
 
 #searchModal {
-    margin: 72px auto auto;
+    padding-top: 72px;
 
     .modal-body {
         max-height: calc(100vh - 132px);
@@ -328,9 +328,7 @@ h6 {
 }
 
 @include media-breakpoint-down(lg) {
-    
-        .row > * {
-            margin-left: 0;
-        }
-    
+    .row>* {
+        margin-left: 0;
+    }
 }
