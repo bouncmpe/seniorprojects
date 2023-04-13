@@ -4,7 +4,7 @@
     {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
         {{- $sorted = $.Paginate $sorted . -}}
     {{- end -}}
-    <div class="row gx-5">
+    <div class="row gx-lg-5">
         {{ range $sorted }}
             {{ if and (isset .Params "rank") (le (int .Params.rank) 3) }}
                 {{ partial "project-digest-card.html" (dict "page" .) }}
