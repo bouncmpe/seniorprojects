@@ -45,6 +45,10 @@ a {
     }
 }
 
+p a {
+    color: rgba($active-color, 0.7) !important;
+}
+
 .navbar {
     background-color: $base-color;
     backdrop-filter: saturate(180%) blur(20px);
