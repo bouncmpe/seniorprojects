@@ -22,17 +22,11 @@ $bg-color: #F5F5F7;
 }
 
 .container {
-    max-width: 960px;
+    max-width: 1200px;
 }
 
-.main {
-    .container {
-        max-width: 960px;
-    }
-
-    .mini-container {
-        max-width: 653px;
-    }
+.mini-container {
+    max-width: 920px;
 }
 
 a {
@@ -87,11 +81,22 @@ p a {
     }
 }
 
+.main-button {
+    background-color: $base-color;
+    color: #fff;
+
+    &:hover {
+        background-color: #fff;
+        color: $base-color;
+        box-shadow: 0 0 0 2px $base-color;
+    }
+}
+
 .search {
     align-items: center;
     background: #fff;
     border-radius: 4px;
-    box-shadow: inset 0 0 0 2px $active-color;
+    box-shadow: inset 0 0 0 2px $base-color;
     display: flex;
     height: 56px;
     margin: 0;
@@ -113,7 +118,7 @@ p a {
     }
 
     &>svg {
-        color: $active-color;
+        color: $base-color;
         stroke-width: 1.6 !important;
     }
 
@@ -204,7 +209,7 @@ h6 {
     }
 
     .content>*:not(:has(img), :has(iframe)) {
-        max-width: 653px;
+        max-width: 960px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -224,7 +229,7 @@ h6 {
     position: absolute;
     top: 260px;
     right: 30px;
-    width: calc(100vw - ((100vw - 960px) / 2 + 653px) - 120px);
+    width: calc(100vw - ((100vw - 960px) / 2 + 960px) - 120px);
 }
 
 .video-container {
@@ -335,4 +340,14 @@ h6 {
     .row>* {
         margin-left: 0;
     }
+}
+
+.vertical-gallery .gallery-item {
+    margin-bottom: 20px;
+    display: block;
+    cursor: pointer;
+}
+
+.vertical-gallery-row {
+    align-self: center;
 }

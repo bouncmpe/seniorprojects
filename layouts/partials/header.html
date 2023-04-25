@@ -26,9 +26,6 @@
                 <ul class="nav container-fluid">
                     {{- range .Site.Menus.main -}}
                     {{- $url := .URL | relLangURL -}}
-                    {{- with .Page -}}
-                    {{- $url = .RelPermalink -}}
-                    {{- end -}}
                     {{ if not (eq .Identifier "semesters") }}
                     <li class="nav-item">
                         <a class="nav-link{{ if eq $.Section .Identifier }} active{{ end }}"

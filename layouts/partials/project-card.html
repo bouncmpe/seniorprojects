@@ -1,4 +1,4 @@
-<div class="col-md-6 mb-4">
+<div class="col-md-4 mb-4">
     <div class="h-100 project-link">
         {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}
             {{ $src := print "/images/medal-" .page.Params.rank ".png" }}

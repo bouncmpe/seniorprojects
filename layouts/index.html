@@ -1,27 +1,48 @@
 {{- define "content" -}}
 
 <div class="page home">
-
-    {{ $year := .Params.year }}
-    {{ $semester := .Params.semester }}
-
-    {{ $path := printf "semesters/%s-%s/" $year $semester }}
-
-    {{ $all_semesters := where .Site.Pages "Type" "semester" }}
-    {{ $semesters := where $all_semesters "File.Dir" "in" (slice $path) }}
-
-    <h1 class="my-4 text-capitalize fw-semibold">Senior Projects - {{ $semester }} {{ $year }}</h1>
-
-    {{ range $semesters }}
-        {{ if .Params.images }}
-            {{ partial "carousel.html" (dict "images" .Params.images) }}
-        {{ end }}
-        <section class="mt-4 mb-5">
-            {{ .Content }}
-        </section>
-    {{ end }}
-    
-    {{ $pages := where .Site.RegularPages "File.Dir" "in" (slice $path) }}
-    {{ partial "projects-grid.html" (dict "pages_list" $pages) }}
+    <div class="row mt-2">
+        <div class="col-lg-6 vertical-gallery-row">
+            <h6>Computer Engineering</h6>
+            <h1>Senior Projects</h1>
+            <p>?</p>
+            <button id="digest-button" type="button" class="btn main-button">Latest Projects</button>
+        </div>
+        <div class="col-lg-6" id="lightgallery">
+            <div class="vertical-gallery row">
+                <div class="vertical-gallery-row col-6">
+                    <a class="gallery-item">
+                        <img class="img-fluid"
+                            src="https://www.cmpe.boun.edu.tr/sites/default/files/2022_cmpe_senior_project_prizes.jpg">
+                    </a>
+                    <a class="gallery-item">
+                        <img class="img-fluid"
+                            src="https://www.cmpe.boun.edu.tr/sites/default/files/cmpe-poster.png">
+                    </a>
+                </div>
+                <div class="vertical-gallery-row col-6">
+                    <a class="gallery-item">
+                        <img class="img-fluid"
+                            src="https://www.cmpe.boun.edu.tr/sites/default/files/20190108_162732.jpg">
+                    </a>
+                    <a class="gallery-item">
+                        <img class="img-fluid"
+                            src="https://www.cmpe.boun.edu.tr/sites/default/files/2015-01-12_13.29.02_0.jpg">
+                    </a>
+                    <a class="gallery-item">
+                        <img class="img-fluid"
+                            src="https://www.cmpe.boun.edu.tr/sites/default/files/smallimg_1142_0.jpg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgVideo, lgZoom],
+        thumbnail: true,
+        selector: 'img, iframe',
+    });
+</script>
 {{- end -}}

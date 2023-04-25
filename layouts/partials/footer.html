@@ -1,0 +1,44 @@
+<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+    <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+        <div class="row">
+            <div class="col-lg-3 mb-3">
+                <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href='{{ relURL "/" }}'
+                    aria-label="Bootstrap">
+                    <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
+                    <span class="ms-1">Senior Projects</span>
+                </a>
+                <ul class="list-unstyled small ms-2 mt-1">
+                    <li class="mb-2">Designed and built by <a href="/docs/5.3/about/team/">Nurlan Dadashov</a> and <a href="https://github.com/twbs/bootstrap/graphs/contributors">Burak Yılmaz</a> under supervision of 
+                            <a href="https://github.com/twbs/bootstrap/graphs/contributors">Doğan Ulus</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-4 offset-lg-1 mb-3 mt-2">
+                <h5 class="mb-3">Links</h5>
+                <ul class="list-unstyled">
+                    {{- range .Site.Menus.main -}}
+                    {{- $url := .URL | relLangURL -}}
+                    {{ if not (eq .Identifier "semesters") }}
+                        <li class="mb-2"><a href="{{ $url }}">{{ .Name }}</a></li>
+                    {{ end }}
+                    {{ end }}
+                    {{ range .Site.Pages }}
+                        {{ if not .Section }}
+                            {{ if not (eq .Type "home") }}
+                            <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col-6 col-lg-3 mb-3 mt-2">
+                <h5 class="mb-3">Past Semesters</h5>
+                <ul class="list-unstyled">
+                    {{ $semesters := where .Site.Pages "Type" "==" "semester" }}
+                    {{ range $semesters }}
+                        <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
