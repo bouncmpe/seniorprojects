@@ -18,6 +18,8 @@ params:
 taxonomies:
   advisors: advisors
 
+RemovePathAccents: true
+
 menu:
   main:
     - identifier: "offers"

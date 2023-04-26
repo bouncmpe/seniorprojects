@@ -26,7 +26,7 @@ $bg-color: #F5F5F7;
 }
 
 .mini-container {
-    max-width: 920px;
+    max-width: 900px;
 }
 
 a {
@@ -209,7 +209,7 @@ h6 {
     }
 
     .content>*:not(:has(img), :has(iframe)) {
-        max-width: 960px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -229,7 +229,18 @@ h6 {
     position: absolute;
     top: 260px;
     right: 30px;
-    width: calc(100vw - ((100vw - 960px) / 2 + 960px) - 120px);
+    width: calc(100vw - ((100vw - 900px) / 2 + 900px) - 120px);
+}
+
+.advisors {
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+
+    a {
+        display: block;
+        width: fit-content;
+        margin: 0;
+    }
 }
 
 .video-container {
