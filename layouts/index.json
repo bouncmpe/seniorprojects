@@ -1,0 +1,16 @@
+{{- $.Scratch.Add "pagesIndex" slice -}}
+{{- range $index, $page := .Site.Pages -}}
+  {{- if in (slice "semesters" "ongoing" "offers") $page.Section -}}
+    {{- if gt (len $page.Content) 0 -}}
+      {{ $students := slice }}
+      {{ if isset $page.Params "students" }}
+        {{ range $index, $student := $page.Params.students }}
+            {{ $students = $students | append $student.name }}
+        {{ end }}
+      {{ end }}
+      {{- $pageData := (dict "title" $page.Title "href" $page.Permalink "content" $page.Plain "advisors" $page.Params.advisors "students" $students) -}}
+      {{- $.Scratch.Add "pagesIndex" $pageData -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "pagesIndex" | jsonify -}}

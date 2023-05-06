@@ -4,7 +4,7 @@
 
 {{- define "content" -}}
     <div class="page">
-        <h1 class="fw-semibold">Offered Senior Projects</h1>
+        <h1 class="fw-semibold mt-2">Offered Senior Projects</h1>
         <section>
             <table class="table table-hover">
                 <thead>
@@ -16,9 +16,12 @@
                 </thead>
                 <tbody class="table-group-divider">
                     {{ range .Pages }}
-                        <tr>
-                            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-                            <td>{{ delimit .Params.advisors ", " }}</td>
+                        <tr class="position-relative">
+                            <td><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></td>
+                            <td>
+                                {{ range $index, $advisor := .Params.advisors }}{{ if not (eq $index 0) }},{{ end }}
+                                <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="position-relative z-3">{{ $advisor }}</a>{{ end }}
+                            </td>
                             <td>{{ .Date.Format "2006" }}</td>
                         </tr>
                     {{ end }}

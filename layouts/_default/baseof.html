@@ -60,14 +60,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.min.js" integrity="sha512-BfC/MaayF9sOZyn1bs1R1P8dEugU7v0j5Qu2FeWVfF/rhKUKZBD9kgNqRNinefIp9zAE7g2KhlwwhMpl5V1jMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src={{ (resources.Get "js/lunr.unicodeNormalizer.js").RelPermalink }}></script>
 </head>
 
 <body data-bs-theme="light">
     <div class="wrapper">
-        {{- partial "digest.html" . -}}
         {{- partial "header.html" . -}}
         <main class="main">
-            <div class="container">
+            <div class="container-lg">
                 {{- block "content" . }}{{ end -}}
                 {{ partial "search-modal.html" }}
             </div>

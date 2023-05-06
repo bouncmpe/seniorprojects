@@ -1,0 +1,28 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <style>
+        .wrapper {
+            background-color: #F5F5F7
+        }
+    </style>
+    <div class="page pb-4">
+        <h1 class="fw-semibold mt-2">Awards</h1>
+        {{ $semesters := where .Site.Pages "Type" "==" "semester" }}
+        {{ range $semesters }}
+            <div class="row gy-3 gx-5 mb-2">
+                <h3 class="my-4">{{ .Title }}</h3>
+                {{ $ranked := where .CurrentSection.Pages "Params.rank" "le" 3 }}
+                {{ $sorted := sort $ranked "Params.rank" }}
+                {{ range $sorted }}
+                    <div class="col-sm-6 col-lg-4">
+                        {{ partial "project-awards-card.html" (dict "page" .) }}
+                    </div>
+                {{ end }}
+            </div>
+        {{ end }}
+        {{ partial "projects-grid.html" (dict "pages_list" .Pages) }}
+    </div>
+{{- end -}}

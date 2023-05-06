@@ -42,6 +42,16 @@ menu:
       url: "/about/"
       title: ""
       weight: 1
+    - identifier: "awards"
+      name: "Awards"
+      url: "/awards/"
+      title: ""
+      weight: 4
+
+outputs:
+  home:
+    - HTML
+    - JSON
 
 # Markup related configuration in Hugo
 markup:

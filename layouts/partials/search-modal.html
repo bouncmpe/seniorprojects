@@ -2,9 +2,9 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-body">
-                <form class="d-flex search" role="search">
+                <form class="d-flex search" role="search" id="searchForm">
                     {{ partial "search.html" }}
-                    <input id="search" type="search" placeholder="Search" aria-label="Search" autofocus>
+                    <input autofocus id="search" type="search" placeholder="Search" aria-label="Search" autofocus>
                 </form>
                 <div class="list-group" id="results"></div>
             </div>
@@ -12,31 +12,62 @@
     </div>
 </div>
 <script>
-    async function initPF() {
-        const pagefind = await import("/_pagefind/pagefind.js");
+    const modal = document.getElementById('searchModal')
+    const input = document.getElementById('search')
 
-        document.getElementById("search").oninput = async function (e) {
-            const query = e.target.value;
-            const search = await pagefind.search(query);
-            const promises = search.results.map((res) => res.data());
-            const results = await Promise.allSettled(promises)
-            let search_results = ""
-            results.forEach(result => {
-                if (result && result.status === "fulfilled" && result.value) {
-                    console.log(result.value)
-                    search_results += `<a href="${result.value?.url}" class="list-group-item list-group-item-action">${result.value?.meta?.title}</a>`;
-                }
-            })
-            if (search_results) {
-                document.getElementById("results").classList.add("mt-3")
-            }
-            else {
-                document.getElementById("results").classList.remove("mt-3")
-            }
-            
-            document.getElementById("results").innerHTML = search_results;
-        }
+    modal.addEventListener('shown.bs.modal', () => {
+        input.focus()
+    })
+
+    function getSearchResults(query) {
+        return window.searchIndex.search(lunr.unicodeNormalizer(query)).flatMap((hit) => {
+            if (hit.ref == "undefined") return [];
+            let pageMatch = pagesIndex.filter((page) => page.href === hit.ref)[0];
+            pageMatch.score = hit.score;
+            return [pageMatch];
+        });
     }
 
-    initPF()
+    function getLunrSearchQuery(query) {
+        const searchTerms = query.split(" ");
+        if (searchTerms.length === 1) {
+            return `${query}* `;
+        }
+        query = "";
+        for (const term of searchTerms) {
+            query += `+${term} `;
+        }
+        return query.trim();
+    }
+
+    function searchSite(query) {
+        const originalQuery = query;
+        query = getLunrSearchQuery(query);
+        let results = getSearchResults(query);
+        return results.length
+            ? results
+            : query !== originalQuery
+            ? getSearchResults(originalQuery)
+            : [];
+    }
+
+    document.getElementById("search").oninput = async function (e) {
+        const query = document.getElementById("search").value.trim().toLowerCase();
+        const results = searchSite(query)
+
+        let search_results = ""
+        results.forEach(result => {
+            search_results += `<a href="${result.href}" class="list-group-item list-group-item-action">${result.title}</a>`;
+        })
+        if (search_results) {
+            document.getElementById("results").classList.add("mt-3")
+        }
+        else {
+            document.getElementById("results").classList.remove("mt-3")
+        }
+        
+        document.getElementById("results").innerHTML = search_results;
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", e => e.preventDefault())
 </script>

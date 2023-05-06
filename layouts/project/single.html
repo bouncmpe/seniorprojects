@@ -5,7 +5,7 @@
 {{- define "content" -}}
     <article class="project-post">
         {{ partial "breadcrumbs.html" . }}
-        <div class="container mini-container mb-3">
+        <div class="container col-lg-9 mb-3">
             <h1 class="fw-bold mt-5">{{ .Title }}</h1>
             <p class="subhead">
                 {{ .Summary }}
@@ -25,14 +25,24 @@
                 </figure>
             </div>
             {{ end }}
-            <div class="container content">
+            <div class="container col-lg-9">
                 {{ .Content }}
-            </div>
-            <div class="container mini-container advisors py-4 my-4">
-                <h3 class="mb-3">Advisors</h3>
-                {{ range .Params.advisors }}
-                    <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="mt-1">{{ . }}</a>
+                {{ if isset .Params "youtube" }}
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/{{ .Params.youtube }}" frameborder="0"></iframe>
+                    </div>
                 {{ end }}
+                <div class="advisors py-4 my-4">
+                    <h3 class="mb-3">Advisors</h3>
+                    {{ range .Params.advisors }}
+                        <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="mt-1">{{ . }}</a>
+                    {{ end }}
+                </div>
+                <div class="pp-4 my-4">
+                    {{ range .Params.tags }}
+                        <span class="badge text-bg-light me-2">{{ . }}</span>
+                    {{ end }}
+                </div>
             </div>
         </section>
     </article>
