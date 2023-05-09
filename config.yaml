@@ -1,8 +1,8 @@
-baseURL: http://example.org/
 languageCode: en-us
 title: Senior Projects
 
 module:
+  vendor: true
   imports:
   - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
 

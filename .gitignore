@@ -13,3 +13,9 @@ hugo.linux
 /.hugo_build.lock
 
 /themes/
+
+/node_modules/*
+package-lock.json
+
+/static/searchIndex.json
+/static/pagesIndex.json

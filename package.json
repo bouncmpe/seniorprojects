@@ -1,0 +1,22 @@
+{
+  "name": "seniorprojects",
+  "version": "1.0.0",
+  "description": "New CMPE senior projects webpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bouncmpe/seniorprojects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bouncmpe/seniorprojects/issues"
+  },
+  "homepage": "https://github.com/bouncmpe/seniorprojects#readme",
+  "dependencies": {
+    "lunr": "^2.3.9"
+  }
+}
