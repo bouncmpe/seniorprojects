@@ -30,9 +30,9 @@
         <link rel="next" href="{{ .NextInSection.Permalink }}" />
     {{- end -}}
 
-    {{ $options := dict "enableSourceMap" true }}
+    {{ $options := dict "enableSourceMap" true "includePaths" (slice "node_modules") }}
     {{ if hugo.IsProduction}}
-        {{ $options := dict "enableSourceMap" false "outputStyle" "compressed" }}
+        {{ $options := dict "enableSourceMap" false "outputStyle" "compressed" "includePaths" (slice "node_modules") }}
     {{ end }}
     {{ $styles := resources.Get "scss/styles.scss" }}
     {{ $styles = $styles | resources.ToCSS $options }}
@@ -41,7 +41,6 @@
     {{ end }}
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 
-    {{/* Load Bootstrap JS. */}}
     {{ $js := resources.Get "js/index.js" }}
     {{ $params := dict }}
     {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
@@ -51,17 +50,6 @@
         {{ $js = $js | fingerprint }}
     {{ end }}  
     <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" integrity="sha512-F2E+YYE1gkt0T5TVajAslgDfTEUQKtlu4ralVq78ViNxhKXQLrgQLLie8u1tVdG2vWnB3ute4hcdbiBtvJQh0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js" integrity="sha512-dSI4QnNeaXiNEjX2N8bkb16B7aMu/8SI5/rE6NIa3Hr/HnWUO+EAZpizN2JQJrXuvU7z0HTgpBVk/sfGd0oW+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-video.min.css" integrity="sha512-89gDQOHnYjji90NPJ7+M5tgA/0E+fjL4KuSFhi6tjH6sZ54yUEogPMmOAgbI599fW1CtCyrsJbch8k/QzuoXzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/video/lg-video.min.js" integrity="sha512-mjdf6tU1Mksu9Hq2YXfbxdzzYHU7SJYmAsMnrhBf80SkHFvk6eHa2d79JM0q5w5ft5nQyBQ0EMB+XTmnvhcFgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-zoom.min.css" integrity="sha512-vIrTyLijDDcUJrQGs1jduUCSVa3+A2DaWpVfNyj4lmXkqURVQJ8LL62nebC388QV3P4yFBSt/ViDX8LRW0U6uw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.min.js" integrity="sha512-BfC/MaayF9sOZyn1bs1R1P8dEugU7v0j5Qu2FeWVfF/rhKUKZBD9kgNqRNinefIp9zAE7g2KhlwwhMpl5V1jMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
 </head>
 
 <body data-bs-theme="light">
@@ -72,10 +60,8 @@
                 {{- block "content" . }}{{ end -}}
                 {{ partial "search-modal.html" }}
             </div>
-            
         </main>
         {{- partial "footer.html" . -}}
-        
     </div>
 </body>
 

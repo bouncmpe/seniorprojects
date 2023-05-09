@@ -1,7 +1,21 @@
+// bootstrap
 require("js/bootstrap")
+
+// lazysize
+require("lazysizes")
+
+// lunr
 window.lunr = require('lunr');
 require("js/lunr.unicodeNormalizer.js")(window.lunr);
 
+// lightgallery
+window.lightGallery = require("lightgallery")
+window.lgZoom = require("lightgallery/plugins/zoom")
+window.lgVideo = require("lightgallery/plugins/video")
+
+// require("lightgallery/css/lightgallery.css")
+
+// get index for search
 async function initSearchIndex() {
   try {
     const response = await fetch("/searchIndex.json");

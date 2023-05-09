@@ -3,6 +3,11 @@ title: Senior Projects
 
 module:
   vendor: true
+  mounts:
+  - source: node_modules/lightgallery/fonts
+    target: static/fonts
+  - source: node_modules/lightgallery/images
+    target: static/images
   imports:
   - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
 

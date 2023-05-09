@@ -65,12 +65,14 @@
         </section>
     </article>
     <script>
-        const params = {
-            plugins: [lgVideo, lgZoom],
-            thumbnail: true,
-            selector: 'img, iframe',
-        }
-        lightGallery(document.getElementById('lightgallery'), params);
-        lightGallery(document.getElementById('lightgallery-lg'), params);
+        setTimeout(() => {
+            const params = {
+                plugins: [window.lgVideo, window.lgZoom],
+                thumbnail: true,
+                selector: 'img, iframe',
+            }
+            window.lightGallery(document.getElementById('lightgallery'), params);
+            window.lightGallery(document.getElementById('lightgallery-lg'), params);
+        }, 1000);
     </script>
 {{- end -}}
