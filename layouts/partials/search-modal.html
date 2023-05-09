@@ -68,12 +68,6 @@
         results.forEach(result => {
             search_results += `<a href="${result.href}" class="list-group-item list-group-item-action">${result.title}</a>`;
         })
-        // if (search_results) {
-        //     results_cont.classList.add("mt-3")
-        // }
-        // else {
-        //     results_cont.classList.remove("mt-3")
-        // }
         
         results_cont.innerHTML = search_results;
     }

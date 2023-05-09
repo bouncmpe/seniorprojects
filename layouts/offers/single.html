@@ -11,9 +11,7 @@
             <div class="bottom">
                 <div class="post-author d-flex">
                     <span class="fw-medium me-2">Project Advisor(s):</span>
-                    {{ range $index, $advisor := .Params.advisors }}
-                        {{ if not (eq $index 0) }},&nbsp;{{ end }}<a href='{{ printf "/advisors/%s" . | urlize | relURL }}'>{{ $advisor }}</a>
-                    {{ end }}
+                    {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
                 </div>
             </div>
         </div>

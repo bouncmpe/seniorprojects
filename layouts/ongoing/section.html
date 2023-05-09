@@ -20,12 +20,7 @@
                         <tr class="position-relative">
                             <td><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></td>
                             <td>
-                                {{ range $index, $advisor := .Params.advisors }}
-                                    {{ if not (eq $index 0) }},{{ end }}
-                                    <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="position-relative z-3">
-                                        {{ $advisor }}
-                                    </a>
-                                {{ end }}
+                                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
                             </td>
                             {{ $students := slice }}
                             {{ if isset .Params "students" }}
