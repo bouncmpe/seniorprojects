@@ -15,10 +15,15 @@
     const modal = document.getElementById('searchModal')
     const input = document.getElementById('search')
 
+    // focus on input when modal is shown
     modal.addEventListener('shown.bs.modal', () => {
         input.focus()
     })
 
+    // disable page refresh on form submission
+    document.getElementById("searchForm").addEventListener("submit", e => e.preventDefault())
+
+    // search using lunr
     function getSearchResults(query) {
         return window.searchIndex.search(window.lunr.unicodeNormalizer(query)).flatMap((hit) => {
             if (hit.ref == "undefined") return [];
@@ -28,6 +33,7 @@
         });
     }
 
+    // contruct query
     function getLunrSearchQuery(query) {
         const searchTerms = query.split(" ");
         if (searchTerms.length === 1) {
@@ -35,11 +41,12 @@
         }
         query = "";
         for (const term of searchTerms) {
-            query += `+${term} `;
+            query += `+${term}* `;
         }
         return query.trim();
     }
 
+    // perform search using lunr query or original query
     function searchSite(query) {
         const originalQuery = query;
         query = getLunrSearchQuery(query);
@@ -51,23 +58,23 @@
             : [];
     }
 
-    document.getElementById("search").oninput = async function (e) {
-        const query = document.getElementById("search").value.trim().toLowerCase();
+    // trigger search and display results
+    const results_cont = document.getElementById("results");
+    input.oninput = async function (e) {
+        const query = input.value.trim().toLowerCase();
         const results = searchSite(query)
 
         let search_results = ""
         results.forEach(result => {
             search_results += `<a href="${result.href}" class="list-group-item list-group-item-action">${result.title}</a>`;
         })
-        if (search_results) {
-            document.getElementById("results").classList.add("mt-3")
-        }
-        else {
-            document.getElementById("results").classList.remove("mt-3")
-        }
+        // if (search_results) {
+        //     results_cont.classList.add("mt-3")
+        // }
+        // else {
+        //     results_cont.classList.remove("mt-3")
+        // }
         
-        document.getElementById("results").innerHTML = search_results;
+        results_cont.innerHTML = search_results;
     }
-
-    document.getElementById("searchForm").addEventListener("submit", e => e.preventDefault())
 </script>

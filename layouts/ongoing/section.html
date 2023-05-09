@@ -27,7 +27,13 @@
                                     </a>
                                 {{ end }}
                             </td>
-                            <td>{{ delimit .Params.students ", " }}</td>
+                            {{ $students := slice }}
+                            {{ if isset .Params "students" }}
+                                {{ range $index, $student := .Params.students }}
+                                    {{ $students = $students | append $student.name }}
+                                {{ end }}
+                            {{ end }}
+                            <td>{{ delimit $students ", " }}</td>
                             <td>CMPE{{ .Params.course }}</td>
                         </tr>
                     {{ end }}

@@ -10,7 +10,7 @@ body {
 
 $base-color: #004281;
 $active-color: #27ace2;
-$faded: #6f6f6f;
+$faded: #909090;
 $bg-color: #F5F5F7;
 
 a {
@@ -23,8 +23,12 @@ a {
     }
 }
 
-p a {
-    color: rgba($active-color, 0.7) !important;
+.show_links a {
+    color: $faded !important;
+
+    &:hover {
+        color: $active-color !important;
+    }
 }
 
 .navbar {
@@ -288,6 +292,10 @@ h6 {
 
 .content-container {
     margin: 20px 0;
+}
+
+#results a:first-of-type {
+    margin-top: 16px;
 }
 
 .view {

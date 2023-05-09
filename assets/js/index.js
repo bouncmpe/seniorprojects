@@ -1,8 +1,8 @@
 require("js/bootstrap")
 window.lunr = require('lunr');
+require("js/lunr.unicodeNormalizer.js")(window.lunr);
 
 async function initSearchIndex() {
-  console.log(await import("js/lunr.unicodeNormalizer.js"));
   try {
     const response = await fetch("/searchIndex.json");
     window.searchIndex = lunr.Index.load(await response.json());

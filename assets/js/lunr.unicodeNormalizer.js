@@ -5,9 +5,7 @@
  * Includes code from https://github.com/dodo/node-slug/blob/master/slug.js
  */
 
-(async function() {
-  const lunr = await import("lunr");
-
+(async function(lunr) {
   function patchLunr(lunr){
     var charmap = {
       // Latin

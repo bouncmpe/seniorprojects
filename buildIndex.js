@@ -1,4 +1,5 @@
 const CWD = process.cwd();
+console.log(CWD)
 const fs = require('fs');
 const lunr = require('lunr');
 require(CWD + "/assets/js/lunr.unicodeNormalizer.js")(lunr);

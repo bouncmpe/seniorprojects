@@ -3,14 +3,17 @@
 {{ end -}}
 
 {{- define "content" -}}
-    <article class="project-post">
-        {{ partial "breadcrumbs.html" . }}
+    {{ partial "breadcrumbs.html" . }}
+    <article class="project-post show_links">
         <div class="container mb-3 mt-5">
             <p class="date">{{ .Date.Format "2006" }}</p>
             <h1 class="fw-bold">{{ .Title }}</h1>
             <div class="bottom">
                 <div class="post-author d-flex">
-                    <span class="fw-medium me-2">Project Advisor(s):</span> {{ delimit .Params.advisors ", " }}
+                    <span class="fw-medium me-2">Project Advisor(s):</span>
+                    {{ range $index, $advisor := .Params.advisors }}
+                        {{ if not (eq $index 0) }},&nbsp;{{ end }}<a href='{{ printf "/advisors/%s" . | urlize | relURL }}'>{{ $advisor }}</a>
+                    {{ end }}
                 </div>
             </div>
         </div>

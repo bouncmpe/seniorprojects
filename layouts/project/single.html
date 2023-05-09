@@ -3,8 +3,8 @@
 {{ end -}}
 
 {{- define "content" -}}
-    <article class="project-post">
-        {{ partial "breadcrumbs.html" . }}
+    {{ partial "breadcrumbs.html" . }}
+    <article class="project-post show_links">
         <div class="container col-lg-9 mb-3">
             <h1 class="fw-bold mt-5">{{ .Title }}</h1>
             <p class="subhead">
