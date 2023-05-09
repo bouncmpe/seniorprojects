@@ -1,5 +1,5 @@
 ---
-title: "Spring 2022"
+title: "2022 Spring"
 type: semester
 images: [
     "https://www.cmpe.boun.edu.tr/sites/default/files/2022_cmpe_senior_project_prizes.jpg",
