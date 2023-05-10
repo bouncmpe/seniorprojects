@@ -42,13 +42,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
-      - name: Install dependencies
-        run: npm install
-      - name: Build index with Node.js
-        run: node buildIndex.js
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
@@ -58,6 +51,13 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Install dependencies
+        run: npm install
+      - name: Build index with Node.js
+        run: node buildIndex.js
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
