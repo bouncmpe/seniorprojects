@@ -50,19 +50,7 @@ async function initSearchIndex() {
                     return;
                 }
             });
-
-            fs.writeFile(CWD + '/public/searchIndex.json', JSON.stringify(searchIndex), (err) => {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-            });
-            fs.writeFile(CWD + '/public/pagesIndex.json', JSON.stringify(pagesIndex), (err) => {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-            });
+            
             fs.writeFile(CWD + '/static/pagesIndex.json', JSON.stringify(pagesIndex), (err) => {
                 if (err) {
                     console.error(err);
