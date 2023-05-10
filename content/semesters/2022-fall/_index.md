@@ -1,4 +1,4 @@
 ---
-title: "Fall 2022"
+title: "2022 Fall"
 type: semester
 ---

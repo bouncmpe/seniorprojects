@@ -1,8 +1,16 @@
-baseURL: http://example.org/
+baseURL: http://localhost:1313/
 languageCode: en-us
 title: Senior Projects
 
 module:
+  vendor: true
+  mounts:
+  - source: node_modules/lightgallery/fonts
+    target: static/fonts
+  - source: node_modules/lightgallery/images
+    target: static/images
+  - source: static
+    target: static
   imports:
   - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
 
@@ -42,6 +50,16 @@ menu:
       url: "/about/"
       title: ""
       weight: 1
+    - identifier: "awards"
+      name: "Awards"
+      url: "/awards/"
+      title: ""
+      weight: 4
+
+outputs:
+  home:
+    - HTML
+    - JSON
 
 # Markup related configuration in Hugo
 markup:

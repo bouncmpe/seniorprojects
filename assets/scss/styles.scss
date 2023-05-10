@@ -1,5 +1,9 @@
 @import "bootstrap/bootstrap";
 
+@import "lightgallery/css/lightgallery";
+@import "lightgallery/css/lg-video";
+@import "lightgallery/css/lg-zoom";
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
 
 body {
@@ -10,24 +14,8 @@ body {
 
 $base-color: #004281;
 $active-color: #27ace2;
-$faded: #6f6f6f;
+$faded: #909090;
 $bg-color: #F5F5F7;
-
-.department-title {
-    color: $base-color;
-    font-family: 'Merriweather';
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-left: 2.5px;
-}
-
-.container {
-    max-width: 1200px;
-}
-
-.mini-container {
-    max-width: 900px;
-}
 
 a {
     color: inherit !important;
@@ -39,8 +27,12 @@ a {
     }
 }
 
-p a {
-    color: rgba($active-color, 0.7) !important;
+.show_links a {
+    color: $faded !important;
+
+    &:hover {
+        color: $active-color !important;
+    }
 }
 
 .navbar {
@@ -117,7 +109,7 @@ p a {
         width: 100%;
     }
 
-    &>svg {
+    svg {
         color: $base-color;
         stroke-width: 1.6 !important;
     }
@@ -130,13 +122,7 @@ p a {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjEyMy4wNXB4IiBoZWlnaHQ9IjEyMy4wNXB4IiB2aWV3Qm94PSIwIDAgMTIzLjA1IDEyMy4wNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIzLjA1IDEyMy4wNTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTEyMS4zMjUsMTAuOTI1bC04LjUtOC4zOTljLTIuMy0yLjMtNi4xLTIuMy04LjUsMGwtNDIuNCw0Mi4zOTlMMTguNzI2LDEuNzI2Yy0yLjMwMS0yLjMwMS02LjEwMS0yLjMwMS04LjUsMGwtOC41LDguNQ0KCQljLTIuMzAxLDIuMy0yLjMwMSw2LjEsMCw4LjVsNDMuMSw0My4xbC00Mi4zLDQyLjVjLTIuMywyLjMtMi4zLDYuMSwwLDguNWw4LjUsOC41YzIuMywyLjMsNi4xLDIuMyw4LjUsMGw0Mi4zOTktNDIuNGw0Mi40LDQyLjQNCgkJYzIuMywyLjMsNi4xLDIuMyw4LjUsMGw4LjUtOC41YzIuMy0yLjMsMi4zLTYuMSwwLTguNWwtNDIuNS00Mi40bDQyLjQtNDIuMzk5QzEyMy42MjUsMTcuMTI1LDEyMy42MjUsMTMuMzI1LDEyMS4zMjUsMTAuOTI1eiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=);
         background-size: 16px 16px;
         cursor: pointer;
-
-        &>path {
-            fill: red;
-        }
     }
-
-
 }
 
 .breadcrumb {
@@ -173,10 +159,6 @@ h6 {
     font-family: 'Merriweather';
 }
 
-.container.mini-container {
-    padding: 0;
-}
-
 .project-post {
     line-height: 1.7;
 
@@ -207,22 +189,6 @@ h6 {
     .figure-caption {
         color: $faded;
     }
-
-    .content>*:not(:has(img), :has(iframe)) {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .content img {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .content div:has(iframe) {
-        margin-top: 36px;
-        margin-bottom: 36px;
-    }
 }
 
 .right-side {
@@ -245,8 +211,7 @@ h6 {
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
 }
 
@@ -333,6 +298,10 @@ h6 {
     margin: 20px 0;
 }
 
+#results a:first-of-type {
+    margin-top: 16px;
+}
+
 .view {
     cursor: pointer;
     transition: all .3s;
@@ -361,4 +330,30 @@ h6 {
 
 .vertical-gallery-row {
     align-self: center;
+}
+
+#accordion {
+    .accordion-item {
+        border: none;
+        margin-bottom: 10px;
+        background-color: transparent;
+        
+        &, .accordion-button {
+            border-radius: 16px !important;
+        }
+
+        .accordion-button {
+            background-color: $base-color;
+            color: #fff;
+
+            &::after {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFFFFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            }
+        }
+
+        .accordion-body {
+            padding: 0;
+            padding-top: 1.5rem;
+        }
+    }
 }

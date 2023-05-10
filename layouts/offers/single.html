@@ -3,14 +3,15 @@
 {{ end -}}
 
 {{- define "content" -}}
-    <article class="project-post">
-        {{ partial "breadcrumbs.html" . }}
-        <div class="container mini-container mb-3 mt-5">
+    {{ partial "breadcrumbs.html" . }}
+    <article class="project-post show_links">
+        <div class="container mb-3 mt-5">
             <p class="date">{{ .Date.Format "2006" }}</p>
             <h1 class="fw-bold">{{ .Title }}</h1>
             <div class="bottom">
                 <div class="post-author d-flex">
-                    <span class="fw-medium me-2">Project Advisor(s):</span> {{ delimit .Params.advisors ", " }}
+                    <span class="fw-medium me-2">Project Advisor(s):</span>
+                    {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
                 </div>
             </div>
         </div>
@@ -29,10 +30,12 @@
         </section>
     </article>
     <script>
-        lightGallery(document.getElementById('lightgallery'), {
-            plugins: [lgVideo, lgZoom],
-            thumbnail: true,
-            selector: 'img, iframe',
-        });
+        setTimeout(() => {
+           window.lightGallery(document.getElementById('lightgallery'), {
+                plugins: [window.lgVideo, window.lgZoom],
+                thumbnail: true,
+                selector: 'img, iframe',
+            }); 
+        }, 1000);
     </script>
 {{- end -}}

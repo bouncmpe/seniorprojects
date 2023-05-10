@@ -25,15 +25,14 @@
 
     setTimeout(() => {
         const $dynamicGallery = document.getElementById('digest-button');
-        const dynamicGallery = lightGallery(document.getElementById('digest-button'), {
+        const dynamicGallery = window.lightGallery(document.getElementById('digest-button'), {
             dynamic: true,
             dynamicEl: dynamicEls,
-            plugins: [lgVideo, lgZoom],
+            plugins: [window.lgVideo, window.lgZoom],
             preload: 0
         })
         $dynamicGallery.addEventListener('click', function () {
             dynamicGallery.openGallery();
         });
     }, 1000);
-
 </script>

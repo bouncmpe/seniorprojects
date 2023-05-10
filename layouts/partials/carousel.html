@@ -17,15 +17,16 @@
 
 
     const lgContainer = document.getElementById('inline-gallery-container');
-    const inlineGallery = lightGallery(lgContainer, {
-        container: lgContainer,
-        closable: false,
-        showMaximizeIcon: true,
-        dynamic: true,
-        dynamicEl: dynamicInlineEls,
-        plugins: [lgVideo, lgZoom],
-        preload: 0
-    })
-    inlineGallery.openGallery();
-
+    setTimeout(() => {
+        const inlineGallery = window.lightGallery(lgContainer, {
+            container: lgContainer,
+            closable: false,
+            showMaximizeIcon: true,
+            dynamic: true,
+            dynamicEl: dynamicInlineEls,
+            plugins: [window.lgVideo, window.lgZoom],
+            preload: 0
+        })
+        inlineGallery.openGallery();  
+    }, 1000);
 </script>

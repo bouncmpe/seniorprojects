@@ -1,0 +1,1 @@
+{{ range $index, $advisor := .advisors }}{{ if not (eq $index 0) }},&nbsp;{{ end }}<a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="position-relative z-3">{{ $advisor }}</a>{{ end }}

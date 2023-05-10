@@ -3,8 +3,10 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page pb-4">
+    <div class="pb-4">
         <h1 class="fw-semibold mb-4">{{ .Title }}</h1>
-        {{ .Content }}
+        <article class="show_links">
+            {{ .Content }}
+        </article>
     </div>
 {{- end -}}

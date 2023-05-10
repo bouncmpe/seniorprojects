@@ -18,7 +18,7 @@
     </style>
     <article class="project-post">
         {{ partial "breadcrumbs.html" . }}
-        <div class="container mini-container mb-3">
+        <div class="container mb-3">
             <h1 class="fw-bold mt-5">{{ .Title }}</h1>
             <p class="subhead">
                 {{ .Summary }}
@@ -65,12 +65,14 @@
         </section>
     </article>
     <script>
-        const params = {
-            plugins: [lgVideo, lgZoom],
-            thumbnail: true,
-            selector: 'img, iframe',
-        }
-        lightGallery(document.getElementById('lightgallery'), params);
-        lightGallery(document.getElementById('lightgallery-lg'), params);
+        setTimeout(() => {
+            const params = {
+                plugins: [window.lgVideo, window.lgZoom],
+                thumbnail: true,
+                selector: 'img, iframe',
+            }
+            window.lightGallery(document.getElementById('lightgallery'), params);
+            window.lightGallery(document.getElementById('lightgallery-lg'), params);
+        }, 1000);
     </script>
 {{- end -}}

@@ -1,5 +1,5 @@
 {{- define "content" -}}
-
+{{- partial "digest.html" . -}}
 <div class="page home">
     <div class="row mt-2">
         <div class="col-lg-6 vertical-gallery-row">
@@ -39,10 +39,12 @@
     </div>
 </div>
 <script>
-    lightGallery(document.getElementById('lightgallery'), {
-        plugins: [lgVideo, lgZoom],
-        thumbnail: true,
-        selector: 'img, iframe',
-    });
+    setTimeout(() => {
+       window.lightGallery(document.getElementById('lightgallery'), {
+            plugins: [window.lgVideo, window.lgZoom],
+            thumbnail: true,
+            selector: 'img, iframe',
+        }); 
+    }, 1000);
 </script>
 {{- end -}}

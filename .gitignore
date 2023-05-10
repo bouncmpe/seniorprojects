@@ -14,4 +14,8 @@ hugo.linux
 
 /themes/
 
-/static/_pagefind
+/node_modules/*
+package-lock.json
+
+/static/searchIndex.json
+/static/pagesIndex.json

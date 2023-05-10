@@ -3,8 +3,8 @@
 {{- end -}}
 
 {{- define "content" -}}
-    <div class="page">
-        <h1 class="fw-semibold">Offered Senior Projects</h1>
+    <div class="py-4">
+        <h1 class="fw-semibold mb-4">Offered Senior Projects</h1>
         <section>
             <table class="table table-hover">
                 <thead>
@@ -16,9 +16,11 @@
                 </thead>
                 <tbody class="table-group-divider">
                     {{ range .Pages }}
-                        <tr>
-                            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-                            <td>{{ delimit .Params.advisors ", " }}</td>
+                        <tr class="position-relative">
+                            <td><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></td>
+                            <td>
+                                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
+                            </td>
                             <td>{{ .Date.Format "2006" }}</td>
                         </tr>
                     {{ end }}

@@ -2,7 +2,7 @@
 {{ $semesters := where $all "Type" "==" "semester"}}
 
 <nav class="navbar navbar-expand-md sticky-top">
-    <div class="container">
+    <div class="container-lg">
         <a class="navbar-brand" href='{{ relURL "/" }}'>
             <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
         </a>
@@ -63,18 +63,12 @@
                     </li>
                     {{ end }}
                     {{- end -}}
-                    <!-- <li class="nav-item" id="digest-button" style="cursor: pointer;">
-                        <a class="nav-link">
-                            Latest Projects
-                        </a>
-                    </li> -->
                 </ul>
                 <div class="nav-item d-none d-md-block" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer;">
                     <a class="nav-link" style="margin-top: 8px;">
                         {{ partial "search.html" }}
                     </a>
                 </div>
-                
             </div>
         </div>
     </div>
