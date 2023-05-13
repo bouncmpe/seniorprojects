@@ -8,7 +8,7 @@
             {{ $students = $students | append $student.name }}
         {{ end }}
       {{ end }}
-      {{- $pageData := (dict "title" $page.Title "href" $page.Permalink "content" $page.Plain "advisors" $page.Params.advisors "students" $students) -}}
+      {{- $pageData := (dict "title" $page.Title "href" $page.Permalink "content" $page.Plain "tags" $page.Params.tags "advisors" $page.Params.advisors "students" $students) -}}
       {{- $.Scratch.Add "pagesIndex" $pageData -}}
     {{- end -}}
   {{- end -}}

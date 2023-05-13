@@ -1,5 +1,4 @@
 const CWD = process.cwd();
-console.log(CWD)
 const fs = require('fs');
 const lunr = require('lunr');
 require(CWD + "/assets/js/lunr.unicodeNormalizer.js")(lunr);
@@ -21,6 +20,7 @@ async function initSearchIndex() {
                 this.field("content");
                 this.field("advisors");
                 this.field("students");
+                this.field("tags");
                 this.ref("href");
 
                 pagesIndex.forEach((page) => {
@@ -52,6 +52,20 @@ async function initSearchIndex() {
             });
             
             fs.writeFile(CWD + '/static/pagesIndex.json', JSON.stringify(pagesIndex), (err) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+            });
+
+            fs.writeFile(CWD + '/public/searchIndex.json', JSON.stringify(searchIndex), (err) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+            });
+            
+            fs.writeFile(CWD + '/public/pagesIndex.json', JSON.stringify(pagesIndex), (err) => {
                 if (err) {
                     console.error(err);
                     return;

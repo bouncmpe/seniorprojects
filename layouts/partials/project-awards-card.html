@@ -24,9 +24,12 @@
                 {{ end }}
                 <p class="fw-semibold mb-1 mt-3">Advisors:</p> 
                 {{ range .page.Params.advisors  }}
-                    <p class="mb-1">{{ . }}</p>
-                {{ end }}
-                </p>
+                    <p class="mb-1">
+                        <a href='{{ printf "/advisors/%s" . | urlize | relURL }}'>
+                            {{ . }}
+                        </a>
+                    </p>
+                {{ end }} 
             </div>
         </div>
     </div>

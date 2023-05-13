@@ -11,8 +11,6 @@ module:
     target: static/images
   - source: static
     target: static
-  imports:
-  - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
 
 minify:
   disableJSON: true

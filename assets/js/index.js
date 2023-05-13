@@ -1,5 +1,5 @@
 // bootstrap
-require("js/bootstrap")
+require("bootstrap/dist/js/bootstrap.bundle.min")
 
 // lazysize
 require("lazysizes")
@@ -12,8 +12,6 @@ require("js/lunr.unicodeNormalizer.js")(window.lunr);
 window.lightGallery = require("lightgallery")
 window.lgZoom = require("lightgallery/plugins/zoom")
 window.lgVideo = require("lightgallery/plugins/video")
-
-// require("lightgallery/css/lightgallery.css")
 
 // get index for search
 async function initSearchIndex() {
