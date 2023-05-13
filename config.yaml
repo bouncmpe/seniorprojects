@@ -3,7 +3,6 @@ languageCode: en-us
 title: Senior Projects
 
 module:
-  vendor: true
   mounts:
   - source: node_modules/lightgallery/fonts
     target: static/fonts
@@ -11,6 +10,9 @@ module:
     target: static/images
   - source: static
     target: static
+
+build:
+  noJSConfigInAssets: true
 
 minify:
   disableJSON: true
@@ -58,10 +60,3 @@ outputs:
   home:
     - HTML
     - JSON
-
-# Markup related configuration in Hugo
-markup:
-  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
-  highlight:
-    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
-    noClasses: false
