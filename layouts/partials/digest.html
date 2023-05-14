@@ -11,12 +11,10 @@
             {{ if .Params.poster }}
                 {
                     "src": "{{ .Params.poster }}",
-                    'subHtml': '<div class="container subHTML">' + 
+                    'subHtml': '<div class="container subHTML bg-black">' + 
                         '<h3 class="fw-bold pt-2">{{ .Title }}</h3>' +
                         '<p class="subhead mt-1 fs-6">{{ .Summary }}</p>' +
-                        '<div class="bottom">' +
-                            '<div class="post-author d-flex justify-content-center mt-3">{{ partial "students.html" (dict "students" .Params.students) }}</div>' +
-                        '</div>' +
+                        '<div class="post-author d-flex justify-content-center mt-3">{{ partial "students.html" (dict "students" .Params.students) }}</div>' +
                     '</div>'
                 },
             {{ end }}

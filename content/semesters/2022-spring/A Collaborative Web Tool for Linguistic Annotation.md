@@ -9,7 +9,6 @@ students:
     - name: Salih Furkan Akkurt
       github: furkanakkurt1335
 poster: https://www.cmpe.boun.edu.tr/sites/default/files/poster-_collaborative_web_platform_for_linguistic_annotation.jpg
-youtube: 5OD3j2mlMzc
 rank: 1
 type: project
 tags:
@@ -29,3 +28,5 @@ In this project you will develop the next version of BoAT as a web application w
 [1] Türk, U., Atmaca, F., Özateş, Ş.B., Berk, G., Bedir, S.T., Köksal, A., Öztürk, B., Güngör, T. and Özgür, A., Resources for Turkish Dependency Parsing: Introducing the BOUN Treebank and the BoAT Annotation Tool, Language Resources and Evaluation, 2021. (in press)
 
 [2] [Universal Dependencies Format](https://universaldependencies.org/format.html)
+
+{{< youtube 5OD3j2mlMzc >}}

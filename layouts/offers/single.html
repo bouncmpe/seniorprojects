@@ -8,11 +8,10 @@
         <div class="container mb-3 mt-5">
             <p class="date">{{ .Date.Format "2006" }}</p>
             <h1 class="fw-bold">{{ .Title }}</h1>
-            <div class="bottom">
-                <div class="post-author d-flex">
-                    <span class="fw-medium me-2">Project Advisor(s):</span>
-                    {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
-                </div>
+            <hr>
+            <div class="post-author d-flex flex-wrap">
+                <span class="fw-medium me-2">Project Advisor(s):</span>
+                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
             </div>
         </div>
         <section id="lightgallery">

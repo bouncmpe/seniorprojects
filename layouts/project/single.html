@@ -7,13 +7,12 @@
     <article class="project-post show_links">
         <div class="container col-lg-9 mb-3">
             <h1 class="fw-bold mt-5">{{ .Title }}</h1>
-            <p class="subhead">
+            <p class="subhead mt-3 mb-4">
                 {{ .Summary }}
             </p>
-            <div class="bottom">
-                <div class="post-author d-flex">
-                    {{ partial "students.html" (dict "students" .Params.students) }}
-                </div>
+            <hr>
+            <div class="post-author d-flex flex-wrap">
+                {{ partial "students.html" (dict "students" .Params.students) }}
             </div>
         </div>
         <section id="lightgallery">
@@ -27,17 +26,14 @@
             {{ end }}
             <div class="container col-lg-9">
                 {{ .Content }}
-                {{ if isset .Params "youtube" }}
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/{{ .Params.youtube }}" frameborder="0"></iframe>
-                    </div>
-                {{ end }}
-                <div class="advisors py-4 my-4">
+                <hr class="mt-4">
+                <div class="advisors py-2">
                     <h3 class="mb-3">Advisors</h3>
                     {{ range .Params.advisors }}
-                        <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="mt-1">{{ . }}</a>
+                        <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="mt-1 d-block">{{ . }}</a>
                     {{ end }}
                 </div>
+                <hr>
                 <div class="pp-4 my-4">
                     {{ range .Params.tags }}
                         <span class="badge text-bg-light me-2">{{ . }}</span>

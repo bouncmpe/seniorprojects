@@ -1,13 +1,6 @@
 <div class="col-sm-6 col-lg-4 mb-4">
     <div class="h-100 project-link">
-        {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}
-            {{ $src := print "/images/medal-" .page.Params.rank ".png" }}
-            {{ $image := resources.Get $src }}
-            <div class="medal">
-                <img src="{{ $image.RelPermalink }}" alt="medal" />
-            </div>
-        {{ end }}
-        <div class="card h-100 overflow-hidden">
+        <div class="card h-100 overflow-hidden {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}rank-{{.page.Params.rank}}{{ end }}">
             {{ if .page.Params.poster }}
                 <img data-src="{{ .page.Params.poster }}" class="poster lazyload"/> 
             {{ end }}

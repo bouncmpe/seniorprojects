@@ -1,5 +1,5 @@
 <div class="mb-4">
-    <div class="card">
+    <div class="card {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}rank-{{.page.Params.rank}}{{ end }}">
         <div class="row g-0">
             <div class="card-body p-4">
                 <h5 class="card-title mb-2 fw-bold">

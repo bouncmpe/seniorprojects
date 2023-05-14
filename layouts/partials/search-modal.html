@@ -2,9 +2,9 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-body">
-                <form class="d-flex search" role="search" id="searchForm">
+                <form class="d-flex search d-flex align-items-center rounded-3 border-primary px-3" role="search" id="searchForm">
                     {{ partial "search.html" }}
-                    <input autofocus id="search" type="search" placeholder="Search" aria-label="Search" autofocus>
+                    <input id="search" type="search" placeholder="Search" class="bg-transparent border-0 w-100 ps-2">
                 </form>
                 <div class="list-group" id="results"></div>
             </div>

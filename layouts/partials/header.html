@@ -1,22 +1,22 @@
 {{ $all := where .Site.Pages "Section" "==" "semesters" }}
 {{ $semesters := where $all "Type" "==" "semester"}}
 
-<nav class="navbar navbar-expand-md sticky-top">
+<nav class="navbar navbar-expand-md sticky-top bg-primary">
     <div class="container-lg">
         <a class="navbar-brand" href='{{ relURL "/" }}'>
             <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
         </a>
         <div class="d-flex d-md-none">
-            <div class="me-3" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer; margin-top: 8px; color: #fff;">
+            <div class="me-3" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer; margin-top: 2.5px; color: #fff;">
                 {{ partial "search.html" }}
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="background-color: #fff;">
-                <span class="navbar-toggler-icon"></span>
-            </button>  
+            <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="#fff" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+                </svg>
+            </div>  
         </div>
         
-
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
