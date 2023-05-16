@@ -17,16 +17,18 @@
 
 
     const lgContainer = document.getElementById('inline-gallery-container');
-    setTimeout(() => {
-        const inlineGallery = window.lightGallery(lgContainer, {
-            container: lgContainer,
-            closable: false,
-            showMaximizeIcon: true,
-            dynamic: true,
-            dynamicEl: dynamicInlineEls,
-            plugins: [window.lgVideo, window.lgZoom],
-            preload: 0
-        })
-        inlineGallery.openGallery();  
-    }, 1000);
+    window.addEventListener("load", () => {
+        if (window.lightGallery) {
+            const inlineGallery = window.lightGallery(lgContainer, {
+                container: lgContainer,
+                closable: false,
+                showMaximizeIcon: true,
+                dynamic: true,
+                dynamicEl: dynamicInlineEls,
+                plugins: [window.lgVideo, window.lgZoom],
+                preload: 0
+            })
+            inlineGallery.openGallery();  
+        }
+    });
 </script>
