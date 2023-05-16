@@ -8,14 +8,14 @@
         background-color: #F5F5F7
     }
 </style>
-<div class="page pb-4">
+<div class="pb-4">
     {{ partial "breadcrumbs.html" . }}
     <h1 class="mb-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
     {{ if .Params.images }}
     {{ partial "carousel.html" (dict "images" .Params.images) }}
     {{ end }}
     {{ if .Content }}
-    <section class="mt-4">
+    <section class="mt-4 container col-lg-9">
         {{ .Content }}
     </section> 
     {{ end }}
