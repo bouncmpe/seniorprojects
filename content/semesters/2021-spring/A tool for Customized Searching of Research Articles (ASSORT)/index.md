@@ -4,6 +4,7 @@ date: 2022-04-20T19:55:16+04:00
 draft: false
 advisors: 
     - Suzan Üsküdarlı
+    - H. Birkan Yılmaz
 students: 
     - name: Abdullah Yıldız
     - name: Murat Ekici
