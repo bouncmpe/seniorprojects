@@ -2,7 +2,7 @@
     <div class="h-100 project-link">
         <div class="card h-100 overflow-hidden {{ if and (isset .page.Params "rank") (le (int .page.Params.rank) 3) }}rank-{{.page.Params.rank}}{{ end }}">
             {{ if .page.Params.poster }}
-                <img data-src="{{ .page.Params.poster }}" class="poster lazyload"/> 
+                <img data-src='{{ relURL (urlize (printf "/%s%s" .page.File.Dir .page.Params.poster)) }}' class="poster lazyload"/> 
             {{ end }}
             <div class="card-body p-4">
                 <h5 class="card-title mb-2 fw-bold" {{ if and (not .page.Params.poster) (.page.Params.rank) }}style="width: calc(100% - 70px)"{{ end }}>

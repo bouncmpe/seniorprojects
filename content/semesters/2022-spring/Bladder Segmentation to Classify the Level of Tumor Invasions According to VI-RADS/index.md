@@ -1,15 +1,16 @@
 ---
-title: "Fairness and Bias in Generative Models"
-date: 2022-03-20T19:55:16+04:00
+title: "Bladder Segmentation to Classify the Level of Tumor Invasions According to VI-RADS"
+date: 2022-03-02T19:55:16+04:00
 draft: false
-advisors: 
+advisors:
     - Suzan Üsküdarlı
     - Pınar Yanardağ
 students: 
-    - name: Kıymet Akdemir
-    - name: Aleyna Kara
-poster: https://www.cmpe.boun.edu.tr/sites/default/files/akdemir_492poster.jpg
-rank: 3
+    - name: Gözde Ünver
+    - name: Berkay Demirtaş
+    - name: Sabri Gökberk Yılmaz
+poster: images/poster-bladder_segmentation_to_classify_the_level_of_tumor_invasions_according_to_vi-rads.jpg
+rank: 2
 type: project
 ---
 

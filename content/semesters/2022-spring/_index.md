@@ -2,9 +2,9 @@
 title: "2022 Spring"
 type: semester
 images: [
-    "https://www.cmpe.boun.edu.tr/sites/default/files/2022_cmpe_senior_project_prizes.jpg",
-    "https://www.cmpe.boun.edu.tr/sites/default/files/cmpe-poster.png",
-    "https://www.cmpe.boun.edu.tr/sites/default/files/2022_cmpe_poster_session.jpg"
+    "images/2022_cmpe_senior_project_prizes.jpg",
+    "images/cmpe-poster.png",
+    "images/2022_cmpe_poster_session.jpg"
 ]
 ---
 

@@ -9,7 +9,6 @@ students:
     - name: Ozan Kılıç
 poster: ""
 type: project
-rank: 1
 ---
 
 ## Summary

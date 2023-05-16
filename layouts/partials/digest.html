@@ -3,14 +3,20 @@
 
 {{ $path := printf "semesters/%s-%s/" $year $semester }}
 
-{{ $pages := where .Site.RegularPages "File.Dir" "in" (slice $path) }}
+{{ $pages := slice }}
+
+{{ range .Site.RegularPages }}
+    {{ if hasPrefix .File.Dir $path }}
+        {{ $pages = $pages | append . }}
+    {{ end }}
+{{ end }}
 
 <script>
     const dynamicEls = [
         {{ range $pages }}
             {{ if .Params.poster }}
                 {
-                    "src": "{{ .Params.poster }}",
+                    "src": '{{ relURL (urlize (printf "/%s%s" .File.Dir .Params.poster)) }}',
                     'subHtml': '<div class="container subHTML bg-black">' + 
                         '<h3 class="fw-bold pt-2">{{ .Title }}</h3>' +
                         '<p class="subhead mt-1 fs-6">{{ .Summary }}</p>' +
