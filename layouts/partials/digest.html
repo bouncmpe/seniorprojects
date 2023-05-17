@@ -15,8 +15,21 @@
     const dynamicEls = [
         {{ range $pages }}
             {{ if .Params.poster }}
+                {{ $image := .Resources.Get .Params.poster }}
                 {
-                    "src": '{{ relURL (urlize (printf "/%s%s" .File.Dir .Params.poster)) }}',
+                    "src": '{{ $image.RelPermalink }}',
+                        "sources": [
+                        {
+                            "type": "image/webp",
+                            "srcset": {{ partial "srcset.html" (dict "image" $image "type" " webp")}},
+                            "sizes": "(min-width: 800px) 80vw, 100vw"
+                        },
+                        {
+                            "type": "image/jpeg",
+                            "srcset": {{ partial "srcset.html" (dict "image" $image "type" " jpg")}},
+                            "sizes": "(min-width: 800px) 80vw, 100vw"
+                        }
+                    ],
                     'subHtml': '<div class="container subHTML bg-black">' + 
                         '<h3 class="fw-bold pt-2">{{ .Title }}</h3>' +
                         '<p class="subhead mt-1 fs-6">{{ .Summary }}</p>' +

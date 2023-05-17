@@ -107,6 +107,7 @@ hr {
 
     img {
         width: 100%;
+        height: auto;
         cursor: pointer;
     }
 
@@ -156,8 +157,7 @@ hr {
 
     img {
         height: 266px;
-        width: auto;
-        transform-origin: top 100%
+        width: 100%;
     }
 }
 

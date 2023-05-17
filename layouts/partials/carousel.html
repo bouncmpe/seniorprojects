@@ -6,9 +6,32 @@
     </div>
 </div>
 
-{{ partial "dynamicInlineEls.html" (dict "images" .images "section" .section) }}
-
 <script>
+    {{ $section := .section }}
+
+    const dynamicCarouselEls = [
+        {{ range .images }}
+            {{ $image := $section.Resources.Get . }}
+            {{ with $image }}
+            {
+                "src": "{{ . }}",
+                "sources": [
+                    {
+                        "type": "image/webp",
+                        "srcset": {{ partial "srcset.html" (dict "image" $image "type" " webp")}},
+                        "sizes": "(min-width: 1024px) 60vw, 100vw"
+                    },
+                    {
+                        "type": "image/jpeg",
+                        "srcset": {{ partial "srcset.html" (dict "image" $image "type" " jpg")}},
+                        "sizes": "(min-width: 1024px) 60vw, 100vw"
+                    }
+                ]
+            },
+            {{ end }}
+        {{ end }}
+    ]
+
     const lgContainer = document.getElementById('inline-gallery-container');
     window.addEventListener("load", () => {
         if (window.lightGallery) {
@@ -17,7 +40,7 @@
                 closable: false,
                 showMaximizeIcon: true,
                 dynamic: true,
-                dynamicEl: dynamicEls,
+                dynamicEl: dynamicCarouselEls,
                 plugins: [window.lgVideo, window.lgZoom],
                 preload: 0
             })

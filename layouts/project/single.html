@@ -18,8 +18,8 @@
         <section id="lightgallery">
             {{ if .Params.poster }}
             <div class="container mt-5 mb-3 d-flex justify-content-center">
-                <figure class="figure" data-src="{{ .Params.poster }}">
-                    <img src="{{ .Params.poster }}" alt="poster" />
+                <figure class="figure">
+                    {{ partial "page-image.html" (dict "src" .Params.poster "page" . "alt" "poster" "sizes" "80vw")}}
                     <figcaption class="figure-caption text-center">Poster</figcaption>
                 </figure>
             </div>

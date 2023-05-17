@@ -1,5 +1,10 @@
 {{- define "content" -}}
 {{- partial "digest.html" . -}}
+
+
+{{ $images := (slice "/home/2022_cmpe_senior_project_prizes.jpg" "/home/cmpe-poster.png" "/home/20190108_162732.jpg" "/home/2015-01-12_13.29.02_0.jpg" "/home/smallimg_1142_0.jpg")}}
+
+
 <div class="page home">
     <div class="row mt-2">
         <div class="col-lg-6 align-self-center">
@@ -11,36 +16,54 @@
         <div class="col-lg-6" id="lightgallery">
             <div class="vertical-gallery row">
                 <div class="col-6 align-self-center">
-                    <a class="d-block mb-3" role="button">
-                        {{ partial "image.html" (dict "src" "/home/2022_cmpe_senior_project_prizes.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
-                    </a>
-                    <a class="d-block mb-3" role="button">
-                        {{ partial "image.html" (dict "src" "/home/cmpe-poster.png" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
-                    </a>
+                    {{ range $i, $src := (first 2 $images) }}
+                        <a class="d-block mb-3" role="button">
+                            {{ partial "image.html" (dict "src" $src "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
+                        </a>
+                    {{ end }}
                 </div>
                 <div class="col-6 align-self-center">
-                    <a class="d-block mb-3" role="button">
-                        {{ partial "image.html" (dict "src" "/home/20190108_162732.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
-                    </a>
-                    <a class="d-block mb-3" role="button">
-                        {{ partial "image.html" (dict "src" "/home/2015-01-12_13.29.02_0.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
-                    </a>
-                    <a class="d-block mb-3" role="button">
-                        {{ partial "image.html" (dict "src" "/home/smallimg_1142_0.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
-                    </a>
+                    {{ range $i, $src := (after 2 $images) }}
+                        <a class="d-block mb-3" role="button">
+                            {{ partial "image.html" (dict "src" $src "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
+                        </a>
+                    {{ end }}
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{ partial "dynamicEls.html" (dict "images" (slice "/home/2022_cmpe_senior_project_prizes.jpg" "/home/cmpe-poster.png" "/home/20190108_162732.jpg" "/home/2015-01-12_13.29.02_0.jpg" "/home/smallimg_1142_0.jpg")) }}
+
 <script>
+    const dynamicEls2 = [
+        {{ range $images }}
+            {{ $image := resources.Get . }}
+            {{ with $image }}
+            {
+                "src": "{{ . }}",
+                "sources": [
+                    {
+                        "type": "image/webp",
+                        "srcset": {{ partial "srcset.html" (dict "image" $image "type" " webp")}},
+                        "sizes": "100vw"
+                    },
+                    {
+                        "type": "image/jpeg",
+                        "srcset": {{ partial "srcset.html" (dict "image" $image "type" " jpg")}},
+                        "sizes": "100vw"
+                    }
+                ]
+            },
+            {{ end }}
+        {{ end }}
+    ]
+
     window.addEventListener("load", () => {
         const lgContainer = document.getElementById('lightgallery');
         if (window.lightGallery) {
             const dynamicGallery = window.lightGallery(lgContainer, {
                 dynamic: true,
-                dynamicEl: dynamicEls,
+                dynamicEl: dynamicEls2,
                 plugins: [window.lgVideo, window.lgZoom],
                 preload: 0
             })
