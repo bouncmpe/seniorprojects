@@ -1,0 +1,36 @@
+{{- $respSizes := slice "46" "92" -}}
+
+{{ $image := resources.Get "/images/logo.png" }}
+{{ $actualImg := $image.Resize "100x jpg" }}
+
+<picture>
+    <source
+        type="image/webp"
+        srcset="
+        {{- with $respSizes -}}
+            {{- range $i, $e := . -}}
+                {{- if ge $image.Width . -}}
+                    {{- if $i }}, {{ end -}}{{- ($image.Resize (printf "%sx%s" . " webp") ).RelPermalink }} {{ . }}w
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}"
+    />
+    <source
+        type="image/jpeg"
+        srcset="
+        {{- with $respSizes -}}
+            {{- range $i, $e := . -}}
+                {{- if ge $image.Width . -}}
+                    {{- if $i }}, {{ end -}}{{- ($image.Resize (printf "%sx%s" . " jpg") ).RelPermalink }} {{ . }}w
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}"
+    />
+    <img
+        src="{{ $actualImg.RelPermalink }}"
+        width="46"
+        height="46"
+        alt="Logo"
+        loading="lazy"
+    />
+</picture>

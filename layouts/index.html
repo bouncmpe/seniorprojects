@@ -12,40 +12,44 @@
             <div class="vertical-gallery row">
                 <div class="col-6 align-self-center">
                     <a class="d-block mb-3" role="button">
-                        <img class="img-fluid"
-                            src="/home/2022_cmpe_senior_project_prizes.jpg">
+                        {{ partial "image.html" (dict "src" "/home/2022_cmpe_senior_project_prizes.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                     </a>
                     <a class="d-block mb-3" role="button">
-                        <img class="img-fluid"
-                            src="/home/cmpe-poster.png">
+                        {{ partial "image.html" (dict "src" "/home/cmpe-poster.png" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                     </a>
                 </div>
                 <div class="col-6 align-self-center">
                     <a class="d-block mb-3" role="button">
-                        <img class="img-fluid"
-                            src="/home/20190108_162732.jpg">
+                        {{ partial "image.html" (dict "src" "/home/20190108_162732.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                     </a>
                     <a class="d-block mb-3" role="button">
-                        <img class="img-fluid"
-                            src="/home/2015-01-12_13.29.02_0.jpg">
+                        {{ partial "image.html" (dict "src" "/home/2015-01-12_13.29.02_0.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                     </a>
                     <a class="d-block mb-3" role="button">
-                        <img class="img-fluid"
-                            src="/home/smallimg_1142_0.jpg">
+                        {{ partial "image.html" (dict "src" "/home/smallimg_1142_0.jpg" "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+{{ partial "dynamicEls.html" (dict "images" (slice "/home/2022_cmpe_senior_project_prizes.jpg" "/home/cmpe-poster.png" "/home/20190108_162732.jpg" "/home/2015-01-12_13.29.02_0.jpg" "/home/smallimg_1142_0.jpg")) }}
 <script>
     window.addEventListener("load", () => {
+        const lgContainer = document.getElementById('lightgallery');
         if (window.lightGallery) {
-            window.lightGallery(document.getElementById('lightgallery'), {
+            const dynamicGallery = window.lightGallery(lgContainer, {
+                dynamic: true,
+                dynamicEl: dynamicEls,
                 plugins: [window.lgVideo, window.lgZoom],
-                thumbnail: true,
-                selector: 'img, iframe',
-            }); 
+                preload: 0
+            })
+
+            document.querySelectorAll("#lightgallery img").forEach((el, index) => {
+                el.addEventListener('click', function () {
+                    dynamicGallery.openGallery(index);
+                }); 
+            }) 
         }
     });
 </script>

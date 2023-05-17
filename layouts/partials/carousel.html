@@ -6,16 +6,9 @@
     </div>
 </div>
 
+{{ partial "dynamicInlineEls.html" (dict "images" .images "section" .section) }}
+
 <script>
-    const dynamicInlineEls = [
-        {{ range .images }}
-            {
-                "src": "{{ . }}",
-            },
-        {{ end }}
-    ]
-
-
     const lgContainer = document.getElementById('inline-gallery-container');
     window.addEventListener("load", () => {
         if (window.lightGallery) {
@@ -24,7 +17,7 @@
                 closable: false,
                 showMaximizeIcon: true,
                 dynamic: true,
-                dynamicEl: dynamicInlineEls,
+                dynamicEl: dynamicEls,
                 plugins: [window.lgVideo, window.lgZoom],
                 preload: 0
             })

@@ -1,0 +1,42 @@
+{{- $respSizes := slice "160" "320" "600" "960" "1280" "1600" "1920" -}}
+{{ $section := .section }}
+<script>
+    const dynamicEls = [
+        {{ range .images }}
+            {{ $image := $section.Resources.Get . }}
+            {{ with $image }}
+            {
+                "src": "{{ . }}",
+                "sources": [
+                    {
+                        "type": "image/webp",
+                        "srcset": "
+                            {{- with $respSizes -}}
+                                {{- range $i, $e := . -}}
+                                    {{- if ge $image.Width . -}}
+                                        {{- if $i }}, {{ end -}}{{- ($image.Resize (printf "%sx%s" . " webp") ).RelPermalink }} {{ . }}w
+                                    {{- end -}}
+                                {{- end -}}
+                            {{- end -}}
+                        ",
+                        "sizes": "100vw"
+                    },
+                    {
+                        "type": "image/jpeg",
+                        "srcset": "
+                            {{- with $respSizes -}}
+                                {{- range $i, $e := . -}}
+                                    {{- if ge $image.Width . -}}
+                                        {{- if $i }}, {{ end -}}{{- ($image.Resize (printf "%sx%s" . " jpg") ).RelPermalink }} {{ . }}w
+                                    {{- end -}}
+                                {{- end -}}
+                            {{- end -}}
+                        ",
+                        "sizes": "100vw"
+                    }
+                ]
+            },
+            {{ end }}
+        {{ end }}
+    ]
+</script>

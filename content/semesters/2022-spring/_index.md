@@ -2,9 +2,9 @@
 title: "2022 Spring"
 type: semester
 images: [
-    "images/2022_cmpe_senior_project_prizes.jpg",
-    "images/cmpe-poster.png",
-    "images/2022_cmpe_poster_session.jpg"
+    "2022_cmpe_senior_project_prizes.jpg",
+    "cmpe-poster.png",
+    "2022_cmpe_poster_session.jpg"
 ]
 ---
 
