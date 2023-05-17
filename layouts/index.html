@@ -39,12 +39,14 @@
     </div>
 </div>
 <script>
-    setTimeout(() => {
-       window.lightGallery(document.getElementById('lightgallery'), {
-            plugins: [window.lgVideo, window.lgZoom],
-            thumbnail: true,
-            selector: 'img, iframe',
-        }); 
-    }, 1000);
+    window.addEventListener("load", () => {
+        if (window.lightGallery) {
+            window.lightGallery(document.getElementById('lightgallery'), {
+                plugins: [window.lgVideo, window.lgZoom],
+                thumbnail: true,
+                selector: 'img, iframe',
+            }); 
+        }
+    });
 </script>
 {{- end -}}

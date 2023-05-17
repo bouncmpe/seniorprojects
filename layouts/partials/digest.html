@@ -27,16 +27,18 @@
         {{ end }}
     ]
 
-    setTimeout(() => {
+    window.addEventListener("load", () => {
         const $dynamicGallery = document.getElementById('digest-button');
-        const dynamicGallery = window.lightGallery(document.getElementById('digest-button'), {
-            dynamic: true,
-            dynamicEl: dynamicEls,
-            plugins: [window.lgVideo, window.lgZoom],
-            preload: 0
-        })
-        $dynamicGallery.addEventListener('click', function () {
-            dynamicGallery.openGallery();
-        });
-    }, 1000);
+        if (window.lightGallery) {
+            const dynamicGallery = window.lightGallery(document.getElementById('digest-button'), {
+                dynamic: true,
+                dynamicEl: dynamicEls,
+                plugins: [window.lgVideo, window.lgZoom],
+                preload: 0
+            })
+            $dynamicGallery.addEventListener('click', function () {
+                dynamicGallery.openGallery();
+            });
+        }
+    });
 </script>
