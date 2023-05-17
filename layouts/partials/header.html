@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-md sticky-top bg-primary">
     <div class="container-lg">
         <a class="navbar-brand" href='{{ relURL "/" }}'>
-            <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
+            {{ partial "logo.html" }}
         </a>
         <div class="d-flex d-md-none">
             <div class="me-3" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer; margin-top: 2.5px; color: #fff;">
@@ -19,7 +19,7 @@
         
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <img src='{{ (resources.Get "/images/logo.png").RelPermalink }}' height="46px" alt="...">
+                {{ partial "logo.html" }}
                 <button type="button" class="btn-close me-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">

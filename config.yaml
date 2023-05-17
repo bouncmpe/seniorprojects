@@ -8,8 +8,12 @@ module:
     target: static/fonts
   - source: node_modules/lightgallery/images
     target: static/images
+  - source: static/home
+    target: assets/home
   - source: static
     target: static
+  - source: assets
+    target: assets
 
 build:
   noJSConfigInAssets: true

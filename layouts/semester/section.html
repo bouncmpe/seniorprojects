@@ -12,7 +12,7 @@
     {{ partial "breadcrumbs.html" . }}
     <h1 class="mb-4 fw-semibold">Completed Projects - {{ .Title }}</h1>
     {{ if .Params.images }}
-    {{ partial "carousel.html" (dict "images" .Params.images) }}
+    {{ partial "carousel.html" (dict "images" .Params.images "section" .) }}
     {{ end }}
     {{ if .Content }}
     <section class="mt-4 container col-lg-9">
