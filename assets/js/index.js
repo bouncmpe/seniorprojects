@@ -1,5 +1,5 @@
 // bootstrap
-require("bootstrap/dist/js/bootstrap.min")
+require("bootstrap/dist/js/bootstrap.bundle.min")
 
 // lazysize
 require("lazysizes")

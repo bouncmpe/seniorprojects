@@ -52,7 +52,9 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --templateMetrics \
+            --templateMetricsHints
       - name: Build index with Node.js
         run: node buildIndex.js
       - name: Setup Pages
