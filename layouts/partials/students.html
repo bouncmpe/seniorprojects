@@ -2,21 +2,21 @@
     {{ $image := "" }}
     {{ $url := "" }}
     {{ if $student.github }}
-        {{ $image = printf "https://github.com/%s.png" $student.github }}
+        {{ $path := printf "https://github.com/%s.png" $student.github }}
+        {{ $image = resources.GetRemote $path }}
         {{ $url = printf "https://github.com/%s" $student.github }}
     {{ end }}
-    {{ if $student.image }}
+    {{ if $student.image }} // TODO
         {{ $image = $student.image }}
     {{ end }}
     {{ if $student.url }}
         {{ $url = $student.url }}
     {{ end }}
     {{ if not $image }}
-        {{ $avatar := resources.Get "/images/avatar.jpeg" }}
-        {{ $image = $avatar.RelPermalink }}
+        {{ $image = resources.Get "/images/avatar.jpeg" }}
     {{ end }}
     <div class="d-flex align-items-center me-1">
-        <img src="{{ $image }}" class="rounded-circle shadow-sm" style="width: 32px; height: 32px;" alt="Avatar" />
+        {{ partial "image.html" (dict "image" $image "alt" "avatar" "sizes" "32px" "classes" "rounded-circle shadow-sm avatar")}}
         {{ if $url }}
             <a href="{{ $url }}" class="mx-2">{{ $student.name }}</a>
         {{ else }}

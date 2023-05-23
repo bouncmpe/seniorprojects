@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "buildIndex": "node buildIndex.js",
-    "build": "hugo",
+    "build": "hugo --minify",
     "serve": "hugo server",
     "start": "npm run build && npm run buildIndex && npm run serve"
   },

@@ -15,12 +15,7 @@
             <div class="col-6 col-lg-4 offset-lg-1 mb-3 mt-2">
                 <h5 class="mb-3">Links</h5>
                 <ul class="list-unstyled">
-                    {{- range .Site.Menus.main -}}
-                    {{- $url := .URL | relLangURL -}}
-                    {{ if not (eq .Identifier "semesters") }}
-                        <li class="mb-2"><a href="{{ $url }}">{{ .Name }}</a></li>
-                    {{ end }}
-                    {{ end }}
+                    <li class="mb-2"><a href="{{ relURL "/admin" }}">Admin</a></li>
                     {{ range .Site.Pages }}
                         {{ if not .Section }}
                             {{ if not (eq .Type "home") }}

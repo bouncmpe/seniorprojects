@@ -18,14 +18,16 @@
                 <div class="col-6 align-self-center">
                     {{ range $i, $src := (first 2 $images) }}
                         <a class="d-block mb-3" role="button">
-                            {{ partial "image.html" (dict "src" $src "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
+                            {{ $image := resources.Get $src }}
+                            {{ partial "image.html" (dict "image" $image "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                         </a>
                     {{ end }}
                 </div>
                 <div class="col-6 align-self-center">
                     {{ range $i, $src := (after 2 $images) }}
                         <a class="d-block mb-3" role="button">
-                            {{ partial "image.html" (dict "src" $src "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
+                            {{ $image := resources.Get $src }}
+                            {{ partial "image.html" (dict "image" $image "classes" "img-fluid" "sizes" "(min-width: 1024px) 25vw, 50vw")}}
                         </a>
                     {{ end }}
                 </div>

@@ -13,7 +13,7 @@ type: project
 
 ## Summary
 
-![funny](images/i1.jpeg)
+{{< image src="images/i1.jpeg" alt="funny" >}}
 
 The mispelling of de-da is a hot topic among Turkish speakers. Not only are there a lot of spelling mistakes for this case, it is can be quite triggering for many people. Unfortunately, spellchecker/correctors are not very successful in detecting these errors.
  
@@ -25,7 +25,7 @@ In particular a mechanism for collecting new de-da examples  from Twitter will b
  
 The coding will be in python. You must be comfortable with APIs and developing web applications. 
 
-![example-screenshot](images/i2.png)
+{{< image src="images/i2.png" alt="example-screenshot" >}}
 
 ## Useful links:
 - Complaints related to such mispellings are plenty: see: https://twitter.com/search?q=de%20ayri%20yazilir&src=typed_query

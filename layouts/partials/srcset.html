@@ -1,9 +1,5 @@
 {{- $respSizes := slice "160" "320" "600" "960" "1280" "1600" "1920" -}}
-
-{{ $image := .image }}
-{{ $type := .type }}
-
-
+{{ $image := .image }}{{ $type := .type }}
 {{- with $respSizes -}}
     {{- range $i, $e := . -}}
         {{- if ge $image.Width . -}}

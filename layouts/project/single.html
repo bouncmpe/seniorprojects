@@ -19,7 +19,8 @@
             {{ if .Params.poster }}
             <div class="container mt-5 mb-3 d-flex justify-content-center">
                 <figure class="figure">
-                    {{ partial "page-image.html" (dict "src" .Params.poster "page" . "alt" "poster" "sizes" "80vw")}}
+                    {{ $image := .Resources.Get .Params.poster }}
+                    {{ partial "image.html" (dict "image" $image "alt" "poster" "sizes" "(min-width: 1024px) 80vw, 90vw")}}
                     <figcaption class="figure-caption text-center">Poster</figcaption>
                 </figure>
             </div>
@@ -49,6 +50,7 @@
                     plugins: [window.lgVideo, window.lgZoom],
                     thumbnail: true,
                     selector: 'img, iframe',
+                    preload: 0
                 });
             }
         });

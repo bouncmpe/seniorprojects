@@ -59,11 +59,6 @@ menu:
       url: "/awards/"
       title: ""
       weight: 4
-    - identifier: "admin"
-      name: "Admin"
-      url: "/admin/"
-      title: ""
-      weight: 5
 
 outputs:
   home:

@@ -1,6 +1,6 @@
 {{- $respSizes := slice "160" "320" "600" "960" "1280" "1600" "1920" -}}
 
-{{ $image := resources.Get .src }}
+{{ $image := .image }}
 {{- $actualImg := $image.Resize "640x jpg" -}}
 
 <picture>
@@ -16,6 +16,7 @@
     />
     <img class="{{ .classes }}"
         src="{{ $actualImg.RelPermalink }}"
+        data-sources='[{"type": "image/webp", "srcset": "{{ partial "srcset.html" (dict "image" $image "type" " webp")}}", "sizes": "100vw" }, {"type": "image/jpeg", "srcset": "{{ partial "srcset.html" (dict "image" $image "type" " jpg")}}", "sizes": "100vw" }]'
         width="{{ $image.Width }}"
         height="{{ $image.Height }}"
         alt="{{ .alt }}"

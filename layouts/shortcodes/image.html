@@ -6,18 +6,20 @@
 <picture>
     <source
         type="image/webp"
-        srcset={{ partial "srcset.html" (dict "image" $image "type" " webp")}}
-        sizes="60vw"
+        data-srcset={{ partial "srcset.html" (dict "image" $image "type" " webp")}}
+        data-sizes="auto"
     />
     <source
         type="image/jpeg"
-        srcset={{ partial "srcset.html" (dict "image" $image "type" " jpg")}}
-        sizes="60vw"
+        data-srcset={{ partial "srcset.html" (dict "image" $image "type" " jpg")}}
+        data-sizes="auto"
     />
     <img
-        src="{{ $actualImg.RelPermalink }}"
+        class="lazyload"
+        data-src="{{ $actualImg.RelPermalink }}"
+        data-sources='[{"type": "image/webp", "srcset": "{{ partial "srcset.html" (dict "image" $image "type" " webp")}}", "sizes": "100vw" }, {"type": "image/jpeg", "srcset": "{{ partial "srcset.html" (dict "image" $image "type" " jpg")}}", "sizes": "100vw" }]'
         width="{{ $image.Width }}"
         height="{{ $image.Height }}"
-        alt="{{ .Get "src" }}"
+        alt="{{ .Get "alt" }}"
     />
 </picture>
