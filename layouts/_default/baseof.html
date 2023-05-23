@@ -39,17 +39,9 @@
     {{ if hugo.IsProduction }}
         {{ $styles = $styles | fingerprint }}
     {{ end }}
-    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
-
-    {{ $js := resources.Get "js/index.js" }}
-    {{ $params := dict }}
-    {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
-    {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
-    {{ $js = $js | js.Build $opts }}
-    {{ if hugo.IsProduction }}
-        {{ $js = $js | fingerprint }}
-    {{ end }}  
-    <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
+    <style type="text/CSS">
+        {{ $styles.Content | safeCSS }}
+    </style>
 </head>
 
 <body data-bs-theme="light">
@@ -63,6 +55,16 @@
         </main>
         {{- partial "footer.html" . -}}
     </div>
+
+    {{ $js := resources.Get "js/index.js" }}
+    {{ $params := dict }}
+    {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
+    {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
+    {{ $js = $js | js.Build $opts }}
+    {{ if hugo.IsProduction }}
+        {{ $js = $js | fingerprint }}
+    {{ end }}  
+    <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
 </body>
 
 </html>
