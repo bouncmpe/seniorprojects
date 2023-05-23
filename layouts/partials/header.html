@@ -41,7 +41,7 @@
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu">
-                            {{ range $semesters }}
+                            {{ range (first 5 $semesters) }}
                             <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
                             <li>
@@ -55,7 +55,7 @@
                             {{ .Name }}
                         </a>
                         <ul class="collapse list-group list-group-flush mt-2" id="collapseExample">
-                            {{ range $semesters }}
+                            {{ range (first 5 $semesters) }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>
@@ -65,7 +65,7 @@
                     {{- end -}}
                 </ul>
                 <div class="nav-item d-none d-md-block" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer;">
-                    <a class="nav-link" style="margin-top: 8px;">
+                    <a class="nav-link" style="margin-top: 8px;" href="#">
                         {{ partial "search.html" }}
                     </a>
                 </div>

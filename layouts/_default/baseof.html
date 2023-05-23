@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <title>{{- block "title" . }}{{ .Site.Title }}{{ end -}}</title>
-    <meta name="Description" content="{{ .Params.description | default .Site.Params.description }}">
+    <meta name="description" content="{{ .Summary | default .Site.Title }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ relURL "favicon.ico" }}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ relURL "favicon-32x32.png" }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ relURL "favicon-16x16.png" }}">

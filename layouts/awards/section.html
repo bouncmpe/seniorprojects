@@ -10,18 +10,23 @@
     </style>
     <div class="py-4">
         <h1 class="fw-semibold ms-2">Awards</h1>
-        {{ $semesters := where .Site.Pages "Type" "==" "semester" }}
+        {{ $semesters := (where .Site.Pages "Type" "==" "semester").Reverse }}
         {{ range $semesters }}
-            <div class="row gy-3 gx-5 mb-2">
-                <h3 class="mb-3 mt-5 ms-2">{{ .Title }}</h3>
-                {{ $ranked := where .CurrentSection.Pages "Params.rank" "le" 3 }}
-                {{ $sorted := sort $ranked "Params.rank" }}
-                {{ range $sorted }}
-                    <div class="col-sm-6 col-lg-4">
-                        {{ partial "project-awards-card.html" (dict "page" .) }}
-                    </div>
-                {{ end }}
-            </div>
+            {{ $ranked := where .CurrentSection.Pages "Params.rank" "le" 3 }}
+            {{ $sorted := sort $ranked "Params.rank" }}
+            {{ if $sorted }}
+                <div class="row gy-3 gx-5 mb-2">
+                    <h3 class="mb-3 mt-5 ms-2">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+                    
+                    {{ range $sorted }}
+                        <div class="col-sm-6 col-lg-4">
+                            {{ partial "project-awards-card.html" (dict "page" .) }}
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
         {{ end }}
         {{ partial "projects-grid.html" (dict "pages_list" .Pages) }}
     </div>
