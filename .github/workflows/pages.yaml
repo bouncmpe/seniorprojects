@@ -34,10 +34,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - name: Install Hugo CLI
-        run: sudo snap install hugo
-      - name: Install Dart Sass Embedded
-        run: sudo snap install dart-sass-embedded
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -49,14 +45,9 @@ jobs:
           # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-        run: |
-          hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --templateMetrics \
-            --templateMetricsHints
+        run: npm run build
       - name: Build index with Node.js
-        run: node buildIndex.js
+        run: npm run buildIndex
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
