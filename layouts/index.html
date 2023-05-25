@@ -1,19 +1,25 @@
 {{- define "content" -}}
 {{- partial "digest.html" . -}}
 
-
 {{ $images := (slice "/home/2022_cmpe_senior_project_prizes.jpg" "/home/cmpe-poster.png" "/home/20190108_162732.jpg" "/home/2015-01-12_13.29.02_0.jpg" "/home/smallimg_1142_0.jpg")}}
-
+{{ $images2 := .Params.images }}
 
 <div class="page home">
-    <div class="row mt-2">
-        <div class="col-lg-6 align-self-center">
-            <h6>Computer Engineering</h6>
-            <h1>Senior Projects</h1>
-            <p>?</p>
-            <button id="digest-button" type="button" class="btn btn-outline-primary">Latest Projects</button>
+    <div class="row m-4">
+        <div class="col-lg-5 align-self-center">
+            <hgroup>
+            {{ with .Params.pretitle }}
+            <h2>{{ . | markdownify }}</h2>
+            {{ end }}
+            <h1 class="display-4">{{ .Title | markdownify }}</h1>
+            </hgroup>
+            <p>{{ .Content }}</p>
+            <div class="d-grid gap-0 d-lg-flex justify-content-lg-begin my-5">
+                <button id="digest-button" type="button" class="btn btn-lg btn-primary me-lg-1">Explore this semester</button>
+                <button href="/about" type="button" class="btn btn-outline-primary"><a href="/semesters" style="color:inherit">... and previous semesters</a></button>
+            </div>
         </div>
-        <div class="col-lg-6" id="lightgallery">
+        <div class="col-lg-7" id="lightgallery">
             <div class="vertical-gallery row">
                 <div class="col-6 align-self-center">
                     {{ range $i, $src := (first 2 $images) }}
