@@ -12,7 +12,7 @@ images:
   - "/home/2015-01-12_13.29.02_0.jpg" 
   - "/home/smallimg_1142_0.jpg"
 --- 
-This is the Senior Projects Showcase!
 
-Join us in celebrating the outstanding achievements of our talented **senior students**, who have leveraged their skills and knowledge to create their final projects. 
-Explore the formal excellence and remarkable craftsmanship showcased here, and be inspired by the impactful advancements in computer science and engineering. 
+Experience the brilliance of our **senior students** as they unveil their exceptional achievements, leveraging their skills and knowledge to create awe-inspiring final projects. Immerse yourself in the world of formal excellence and remarkable craftsmanship on display, and prepare to be inspired by groundbreaking advancements in computer science and engineering. 
+
+__Join us in exploring and celebrating their remarkable journey of innovation and creativity.__

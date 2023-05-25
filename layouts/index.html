@@ -14,12 +14,12 @@
             <h1 class="display-4">{{ .Title | markdownify }}</h1>
             </hgroup>
             <p>{{ .Content }}</p>
-            <div class="d-grid gap-0 d-lg-flex justify-content-lg-begin my-5">
-                <button id="digest-button" type="button" class="btn btn-lg btn-primary me-lg-1">Explore this semester</button>
+            <div class="d-grid gap-0 d-lg-flex justify-content-lg-begin my-4">
+                <button id="digest-button" type="button" class="btn btn-primary me-lg-1">Explore this semester</button>
                 <button href="/about" type="button" class="btn btn-outline-primary"><a href="/semesters" style="color:inherit">... and previous semesters</a></button>
             </div>
         </div>
-        <div class="col-lg-7" id="lightgallery">
+        <div class="col-lg-6 offset-lg-1" id="lightgallery">
             <div class="vertical-gallery row">
                 <div class="col-6 align-self-center">
                     {{ range $i, $src := (first 2 $images) }}
