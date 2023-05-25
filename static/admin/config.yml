@@ -3,6 +3,7 @@ backend:
   name: github
   branch: main
   repo: bouncmpe/seniorprojects
+  site_domain: bouncmpe-seniorprojects.netlify.app
 
 search: false
 publish_mode: editorial_workflow
