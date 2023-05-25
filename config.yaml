@@ -22,6 +22,8 @@ module:
 build:
   noJSConfigInAssets: true
 
+timeout: 300s # Image processing may take some time, default was 30s
+
 minify:
   disableJSON: true
 
