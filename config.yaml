@@ -4,14 +4,6 @@ title: Senior Projects
 
 module:
   mounts:
-  - source: node_modules/lightgallery/fonts
-    target: static/fonts
-  - source: node_modules/lightgallery/images
-    target: static/images
-  - source: node_modules/lightgallery/fonts
-    target: static/semesters/fonts
-  - source: node_modules/lightgallery/images
-    target: static/semesters/images
   - source: static/home
     target: assets/home
   - source: static

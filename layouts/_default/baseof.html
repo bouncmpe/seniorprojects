@@ -56,6 +56,7 @@
         {{- partial "footer.html" . -}}
     </div>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" integrity="sha512-F2E+YYE1gkt0T5TVajAslgDfTEUQKtlu4ralVq78ViNxhKXQLrgQLLie8u1tVdG2vWnB3ute4hcdbiBtvJQh0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{ $js := resources.Get "js/index.js" }}
     {{ $params := dict }}
     {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
