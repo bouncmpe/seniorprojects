@@ -6,7 +6,7 @@ advisors:
   - Doğan Ulus
 type: posts
 ---
-The objective of this project is to create a seamless integration between \[Zenoh](https://zenoh.io/), a high-performance data distribution and storage system, and \[Carla](https://carla.org/), an open-source simulator for autonomous driving research. By bridging these two platforms, we aim to enhance the capabilities of autonomous driving systems and facilitate advanced research and development in this field.
+The objective of this project is to create a seamless integration between [Zenoh](https://zenoh.io/), a high-performance data distribution and storage system, and [Carla](https://carla.org/), an open-source simulator for autonomous driving research. By bridging these two platforms, we aim to enhance the capabilities of autonomous driving systems and facilitate advanced research and development in this field.
 
 ## Project Goals
 
