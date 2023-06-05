@@ -1,4 +1,4 @@
 ---
-title: "2021 Spring"
+title: 2021 Spring
 type: semester
---- 
+---

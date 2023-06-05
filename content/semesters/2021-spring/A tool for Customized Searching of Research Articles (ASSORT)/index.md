@@ -1,20 +1,17 @@
 ---
-title: "A tool for Customized Searching of Research Articles (ASSORT)"
-date: 2022-04-20T19:55:16+04:00
-draft: false
-advisors: 
-    - Suzan Üsküdarlı
-    - H. Birkan Yılmaz
-students: 
-    - name: Abdullah Yıldız
-    - name: Murat Ekici
-    - name: Veli Can Ünal
-
-poster: images/poster.png
+advisors:
+- Suzan Üsküdarlı
+- H. Birkan Yılmaz
+poster: images/25-poster.png
+students:
+- name: Abdullah Yıldız
+- name: Murat Ekici
+- name: Veli Can Ünal
+title: A tool for Customized Searching of Research Articles (ASSORT)
 type: project
 ---
 
-You may find the project description [here](static/pdf.pdf).
+You may find the project description [here](https://www.cmpe.boun.edu.tr/~uskudarli/courses/cmpe491-492/text_analytics_on_searching_academic_literature.pdf).
 
-Video: https://drive.google.com/file/d/10VNbT1q8PYoK98ZFhPXPDCyEPQ9D0t7f/view?u...
 
+Video: [https://drive.google.com/file/d/10VNbT1q8PYoK98ZFhPXPDCyEPQ9D0t7f/view?u...](https://drive.google.com/file/d/10VNbT1q8PYoK98ZFhPXPDCyEPQ9D0t7f/view?usp=sharing)

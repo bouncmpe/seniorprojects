@@ -1,7 +1,7 @@
-{{- $respSizes := slice "160" "320" "600" "960" "1280" "1600" "1920" -}}
+{{- $respSizes := slice "600" "1280" "1920" -}}
 
 {{ $image := .page.Resources.Get .src }}
-{{- $actualImg := $image.Resize "640x jpg" -}}
+
 
 <picture>
     <source
@@ -15,7 +15,7 @@
         data-sizes="auto"
     />
     <img class="{{ .classes }}"
-        data-src="{{ $actualImg.RelPermalink }}"
+        data-src="{{ $image.RelPermalink }}"
         width="{{ $image.Width }}"
         height="{{ $image.Height }}"
         alt="{{ .alt }}"

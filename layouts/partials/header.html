@@ -41,7 +41,7 @@
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu">
-                            {{ range (first 5 $semesters) }}
+                            {{ range (first 5 $semesters.Reverse) }}
                             <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
                             <li>

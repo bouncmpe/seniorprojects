@@ -1,20 +1,17 @@
 ---
-title: "Social network analysis of researchers (SONAR)"
-date: 2022-04-20T19:55:16+04:00
-draft: false
-advisors: 
-    - Suzan Üsküdarlı
-    - H. Birkan Yılmaz
-students: 
-    - name: Adil Numan Çelik
-    - name: Mehmet Umut Öksüz
-    - name: Mehdi Saffar
-
-poster: images/poster.png
+advisors:
+- Suzan Üsküdarlı
+- H. Birkan Yılmaz
+poster: images/14-poster.png
+students:
+- name: Adil Numan Çelik
+- name: Mehmet Umut Öksüz
+- name: Mehdi Saffar
+title: Social network analysis of researchers (SONAR)
 type: project
 ---
 
-You may find the project description [here](static/pdf.pdf)
+You may find the project description [here](https://www.cmpe.boun.edu.tr/~uskudarli/courses/cmpe491-492/improving_academic_domain_analysis.pdf)
+
 
 {{< youtube p5VJ_VN7wsc >}}
-

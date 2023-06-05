@@ -1,13 +1,10 @@
 ---
-title: "Purposeful Online Communities: A User Generated Behaviour"
-date: 2022-04-20T19:55:16+04:00
-draft: false
-advisors: 
-    - Suzan Üsküdarlı
-students: 
-    - name: Öncel Keleş
-    - name: Alperen Kürşat Özkan
-poster: images/poster.jpg
+advisors:
+- Suzan Üsküdarlı
+poster: images/13-poster.jpg
+students:
+- name: Öncel Keleş
+- name: Alperen Kürşat Özkan
+title: 'Purposeful Online Communities: A User Generated Behaviour'
 type: project
 ---
-

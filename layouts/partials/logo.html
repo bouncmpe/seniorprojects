@@ -1,7 +1,6 @@
 {{- $respSizes := slice "46" "92" -}}
 
 {{ $image := resources.Get "/images/logo.png" }}
-{{ $actualImg := $image.Resize "100x jpg" }}
 
 <picture>
     <source
@@ -27,7 +26,7 @@
         {{- end -}}"
     />
     <img
-        src="{{ $actualImg.RelPermalink }}"
+        src="{{ $image.RelPermalink }}"
         width="46"
         height="46"
         alt="Logo"

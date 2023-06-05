@@ -1,7 +1,7 @@
-{{- $respSizes := slice "160" "320" "600" "960" "1280" "1600" "1920" -}}
+{{- $respSizes := slice "600" "1280" "1920" -}}
 
 {{ $image := .Page.Resources.Get (.Get "src") }}
-{{- $actualImg := $image.Resize "640x jpg" -}}
+
 
 <picture>
     <source
@@ -16,7 +16,7 @@
     />
     <img
         class="lazyload"
-        data-src="{{ $actualImg.RelPermalink }}"
+        data-src="{{ $image.RelPermalink }}"
         data-sources='[{"type": "image/webp", "srcset": "{{ partial "srcset.html" (dict "image" $image "type" " webp")}}", "sizes": "100vw" }, {"type": "image/jpeg", "srcset": "{{ partial "srcset.html" (dict "image" $image "type" " jpg")}}", "sizes": "100vw" }]'
         width="{{ $image.Width }}"
         height="{{ $image.Height }}"

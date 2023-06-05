@@ -1,13 +1,11 @@
 ---
-title: "Bioinformatic Research on Human Genome"
-date: 2022-04-20T19:55:16+04:00
-draft: false
-advisors: 
-    - Arzucan Özgür
-students: 
-    - name: İbrahim Özgürcan Öztaş
-    - name: Volkan Bulca
-poster: images/poster.jpg
+advisors:
+- Arzucan Özgür
+poster: images/07-poster.jpg
+students:
+- name: İbrahim Özgürcan Öztaş
+- name: Volkan Bulca
+title: Bioinformatic Research on Human Genome
 type: project
 ---
 

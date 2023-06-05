@@ -7,7 +7,7 @@
         {{ $url = printf "https://github.com/%s" $student.github }}
     {{ end }}
     {{ if $student.image }} // TODO
-        {{ $image = $student.image }}
+        {{ $image = resources.Get $student.image }}
     {{ end }}
     {{ if $student.url }}
         {{ $url = $student.url }}
@@ -16,7 +16,10 @@
         {{ $image = resources.Get "/images/avatar.jpeg" }}
     {{ end }}
     <div class="d-flex align-items-center me-1">
-        {{ partial "image.html" (dict "image" $image "alt" "avatar" "sizes" "32px" "classes" "rounded-circle shadow-sm avatar")}}
+        <img class="rounded-circle shadow-sm avatar"
+            src="{{ $image.RelPermalink }}"
+            alt="avatar"
+        />
         {{ if $url }}
             <a href="{{ $url }}" class="mx-2">{{ $student.name }}</a>
         {{ else }}

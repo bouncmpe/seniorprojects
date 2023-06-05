@@ -1,5 +1,5 @@
 ---
-title: "2022 Spring"
+title: 2022 Spring
 type: semester
 images: [
     "2022_cmpe_senior_project_prizes.jpg",
