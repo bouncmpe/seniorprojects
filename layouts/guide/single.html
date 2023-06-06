@@ -1,0 +1,16 @@
+{{- define "title" }}
+    {{ .Title }} - {{ .Site.Title }}
+{{ end -}}
+
+{{- define "content" -}}
+    <article class="project-post show_links">
+        <div class="container col-lg-9 mb-3">
+            <h1 class="fw-bold mt-5">{{ .Title }}</h1>
+        </div>
+        <section id="lightgallery">
+            <div class="container col-lg-9">
+                {{ .Content }}
+            </div>
+        </section>
+    </article>
+{{- end -}}
