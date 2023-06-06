@@ -25,7 +25,8 @@ collections:
     # will probably need to sort these out.
       - {label: "Title", name: "title", widget: "string", default: "title"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Advisor", name: "advisors", widget: "select", options: 
+  
+      - {label: "Advisor", name: "advisors", widget: "select", multiple: true, min:1, options: 
         [
           "Doğan Ulus", 
           "Can Özturan",
