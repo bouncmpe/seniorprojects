@@ -9,7 +9,7 @@ search: false
 publish_mode: editorial_workflow
 
 # These lines should *not* be indented
-media_folder: assets/images/uploads # Media files will be stored in the repo under static/images/uploads
+media_folder: static/images/uploads # Media files will be stored in the repo under static/images/uploads
 public_folder: /images/uploads # The src attribute for uploaded media will begin with /images/uploads
 slug:
   encoding: "ascii"
@@ -25,9 +25,33 @@ collections:
     # will probably need to sort these out.
       - {label: "Title", name: "title", widget: "string", default: "title"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Draft", name: "draft", widget: "boolean"}
-      - {label: "Advisors", name: "advisors", widget: "list"}
-      - {label: "Authors", name: "authors", widget: "list"}
-      - {label: "Type", name: "type", default: "posts"}
+      - {label: "Advisor", name: "advisors", widget: "select", options: 
+        [
+          "Doğan Ulus", 
+          "Can Özturan",
+          "Fatma Başak Aydemir",
+          "Özlem Durmaz İncel",
+          "A. C. Cem Say",
+          "Alper Şen",
+          "Arda Yurdakul",
+          "Arzucan Özgür",
+          "Atay Özgövde",
+          "Berk Gökberk",
+          "Cem Ersoy",
+          "Emre Uğur",
+          "Eren Soyak",
+          "Fatih Alagöz",
+          "H. Birkan Yılmaz",
+          "İnci Meliha Baytaş",
+          "Lale Akarun",
+          "Pınar Yanardağ",
+          "Suzan Üsküdarlı",
+          "Tuna Tuğcu",
+          "Tunga Güngör",
+          "Fikret Gürgen",
+          "Mehmet Turan"
+        ]
+      }
+      - {label: "Co-Advisor", name: "co-advisors", widget: "string"}
       - {label: "Body", name: body, widget: markdown}
 
