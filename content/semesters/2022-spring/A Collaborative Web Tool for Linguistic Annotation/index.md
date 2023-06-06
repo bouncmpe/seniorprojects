@@ -7,6 +7,9 @@ students:
 - name: Salih Furkan Akkurt
 title: A Collaborative Web Tool for Linguistic Annotation
 type: project
+rank: 1
+tags:
+- NLP
 ---
 
 A Web Application for Annotating Dependency Parse Treebanks  

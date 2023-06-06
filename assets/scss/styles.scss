@@ -20,7 +20,7 @@ body {
     color: $text-color;
 }
 
-a {
+a:not(.lg-icon) {
     color: inherit !important;
     text-decoration: none;
     transition: all .5s;
@@ -46,7 +46,7 @@ hr {
     opacity: 100%;
 }
 
-.nav-link {
+a.nav-link {
     @include media-breakpoint-up(md) {
         color: rgba(255, 255, 255, 0.85) !important;
 
