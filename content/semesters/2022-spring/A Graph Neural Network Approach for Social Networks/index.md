@@ -9,6 +9,7 @@ students:
 - name: Hazar Çakır
 title: A Graph Neural Network Approach for Social Networks
 type: project
+rank: 2
 ---
 
 Deep Learning on graphs is a particularly important area in Machine Learning, especially when examining social networks.  In this project you will explore the application of Graph Neural Networks on examining online social network content, which is inter-related and challenging to process due to its limited context. You will use state-of-the-art graph neural network approaches and tools for processing social networking data.

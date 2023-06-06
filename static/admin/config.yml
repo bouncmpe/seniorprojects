@@ -27,31 +27,31 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Advisor", name: "advisors", widget: "select", multiple: true, min:1, options: 
         [
-          "Doğan Ulus", 
-          "Can Özturan",
-          "Fatma Başak Aydemir",
-          "Özlem Durmaz İncel",
           "A. C. Cem Say",
           "Alper Şen",
           "Arda Yurdakul",
           "Arzucan Özgür",
           "Atay Özgövde",
           "Berk Gökberk",
+          "Can Özturan",
           "Cem Ersoy",
+          "Doğan Ulus",
           "Emre Uğur",
           "Eren Soyak",
           "Fatih Alagöz",
+          "Fatma Başak Aydemir",
+          "Fikret Gürgen",
           "H. Birkan Yılmaz",
           "İnci Meliha Baytaş",
           "Lale Akarun",
+          "Mehmet Turan",
+          "Özlem Durmaz İncel",
           "Pınar Yanardağ",
           "Suzan Üsküdarlı",
           "Tuna Tuğcu",
-          "Tunga Güngör",
-          "Fikret Gürgen",
-          "Mehmet Turan"
+          "Tunga Güngör"
         ]
       }
-      - {label: "Co-Advisor", name: "co-advisors", widget: "string"}
+      - {label: "Co-Advisor", name: "co-advisors", widget: "string", required: false}
       - {label: "Body", name: body, widget: markdown}
 

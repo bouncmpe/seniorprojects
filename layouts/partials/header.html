@@ -54,8 +54,8 @@
                         <a class="nav-link dropdown-toggle{{ if eq $.Section "semesters" }} active{{ end }}" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             {{ .Name }}
                         </a>
-                        <ul class="collapse list-group list-group-flush mt-2" id="collapseExample">
-                            {{ range (first 5 $semesters) }}
+                        <ul class="collapse list-group list-group-flush" id="collapseExample">
+                            {{ range (first 5 $semesters.Reverse) }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>

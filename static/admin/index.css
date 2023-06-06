@@ -1,0 +1,50 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather';
+}
+
+body {
+    font-family: 'Inter' !important;
+    color: #1d1d1f;
+}
+a {
+    color: inherit !important;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+a:hover {
+    color: #27ace2 !important;
+}
+.show_links a {
+    color: #27ace2 !important;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: all 0.3s;
+}
+.show_links a:hover {
+    text-decoration-color: #27ace2;
+}
+hr {
+    color: #e2e2e2;
+    opacity: 100%;
+}
+.project-post {
+    line-height: 1.7;
+}
+.project-post img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.project-post .date {
+    color: #6e6e73;
+    margin-bottom: 5px;
+}
+.project-post .subhead {
+    letter-spacing: 1.2px;
+}
+.project-post .figure-caption {
+    color: #909090;
+}
+.advisors a {
+    width: fit-content;
+}

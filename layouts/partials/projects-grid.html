@@ -12,7 +12,16 @@
         {{ end }}
         {{ range $sorted }}
             {{ if not (isset .Params "rank") }}
-                {{ partial "project-card.html" (dict "page" .) }}
+                {{ if .Params.poster }}
+                    {{ partial "project-card.html" (dict "page" .) }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ range $sorted }}
+            {{ if not (isset .Params "rank") }}
+                {{ if not .Params.poster }}
+                    {{ partial "project-card.html" (dict "page" .) }}
+                {{ end }}
             {{ end }}
         {{ end }}
     </div>

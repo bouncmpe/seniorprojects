@@ -1,13 +1,46 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap">
 </head>
+
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap");
+    CMS.registerPreviewStyle("/bootstrap/dist/css/bootstrap.min.css");
+    CMS.registerPreviewStyle("/admin/index.css");
+
+    var PostPreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var advisors = entry.getIn(['data', 'advisors'])?.join(", ");
+        var coadvisors = entry.getIn(['data', 'co-advisors']);
+        if (coadvisors) {
+          advisors += ", " + coadvisors
+        }
+        return h('div', {className: "project-post show_links p-4"},
+          h('p', {className: "date"}, entry.getIn(['data', 'date']).getFullYear()),
+          h('h1', {className: "fw-bold"}, entry.getIn(['data', 'title'])),
+          h('hr', {}),
+          h('div', {className: "post-author d-flex flex-wrap"},
+            h('span', {className: "fw-medium me-2"}, "Project Advisor(s):"),
+            h('p', {}, advisors)
+          ),
+          h('div', { "className": "mt-3" }, this.props.widgetFor('body'))
+        );
+      }
+    });
+
+    CMS.registerPreviewTemplate("offer", PostPreview);
+  </script>
 </body>
+
 </html>
