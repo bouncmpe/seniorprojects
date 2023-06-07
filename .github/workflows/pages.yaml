@@ -28,6 +28,12 @@ jobs:
       HUGO_VERSION: 0.110.0
     steps:
     
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 1
+    
       - name: LS
         run: ls /home/runner/work/seniorprojects/seniorprojects
         
@@ -63,11 +69,7 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-          fetch-depth: 1
+      
 
       - name: Install dependencies
         run: npm install
