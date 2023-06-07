@@ -14,3 +14,5 @@ tags:
 ---
 
 The goal of this project is to design and implement a web service that publishes senior project offers from faculty to students and disseminates project results to a wider audience. The project roadmap included requirements collection, the survey of available technologies, service design, implementation, and testing. To ensure simplicity, the focus was on maintenance and reliability. For this, we have containerized authentication server for the cms and defined a workflow for building and deploying automatically from the repository via cloud-native tooling.
+
+Report can be found [here](docs/report.pdf).
