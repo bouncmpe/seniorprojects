@@ -3,7 +3,7 @@ backend:
   name: github
   branch: main
   repo: bouncmpe/seniorprojects
-  site_domain: bouncmpe-seniorprojects.netlify.app
+  base_url: http://157.245.22.69:3000
 
 search: false
 publish_mode: editorial_workflow
