@@ -29,7 +29,7 @@ jobs:
     steps:
     
       - name: LS
-        run: ls
+        run: ls ~/public
         
       - name: pwd
         run: pwd
