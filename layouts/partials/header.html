@@ -43,7 +43,7 @@
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu">
-                            {{ range (first 5 $semesters.Reverse) }}
+                            {{ range (first 5 $semesters.ByTitle.Reverse) }}
                             <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
                             <li>
@@ -57,7 +57,7 @@
                             {{ .Name }}
                         </a>
                         <ul class="collapse list-group list-group-flush" id="collapseExample">
-                            {{ range (first 5 $semesters.Reverse) }}
+                            {{ range (first 5 $semesters.ByTitle.Reverse) }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                             {{ end }}
                             <li class="list-group-item"><a class="dropdown-item" href="{{ relURL "semesters" }}">All Semesters</a></li>

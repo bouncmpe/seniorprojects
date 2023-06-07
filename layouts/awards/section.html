@@ -10,7 +10,7 @@
     </style>
     <div class="py-4">
         <h1 class="fw-semibold ms-2">Awards</h1>
-        {{ $semesters := (where .Site.Pages "Type" "==" "semester").Reverse }}
+        {{ $semesters := (where .Site.Pages "Type" "==" "semester").ByTitle.Reverse }}
         {{ range $semesters }}
             {{ $ranked := where .CurrentSection.Pages "Params.rank" "le" 3 }}
             {{ $sorted := sort $ranked "Params.rank" }}

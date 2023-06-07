@@ -6,7 +6,7 @@
 <div class="py-4">
     <h1 class="mb-4 fw-semibold">Past Projects</h1>
     <ul class="list-group list-group-flush col-sm-4">
-        {{ $semesters := (where .Site.Pages "Type" "==" "semester").Reverse }}
+        {{ $semesters := (where .Site.Pages "Type" "==" "semester").ByTitle.Reverse }}
         {{ range $semesters }}
             <li class="list-group-item">
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>

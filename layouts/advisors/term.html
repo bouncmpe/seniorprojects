@@ -24,7 +24,7 @@
 {{ end }}
 
 <h2 class="mb-4">Completed Projects</h2>
-{{ $semesters := (where .Site.Pages "Type" "==" "semester").Reverse }}
+{{ $semesters := (where .Site.Pages "Type" "==" "semester").ByTitle.Reverse }}
 {{ range $semesters }}
     {{ $pages := where .Pages ".Params.advisors" "intersect" (slice $advisor) }}
     {{ if $pages }}

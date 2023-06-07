@@ -27,7 +27,7 @@
                 <h5 class="mb-3">Past Semesters</h5>
                 <ul class="list-unstyled">
                     {{ $semesters := where .Site.Pages "Type" "==" "semester" }}
-                    {{ range (first 5 $semesters.Reverse) }}
+                    {{ range (first 5 $semesters.ByTitle.Reverse) }}
                         <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                     {{ end }}
                 </ul>
