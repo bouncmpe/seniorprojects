@@ -1,9 +1,14 @@
 ---
 title: A web service for senior projects
-date: 2023-06-07T17:16:25.255Z
+date: 2023-01-28T19:55:16+04:00
 advisors:
   - Doğan Ulus
-tags:
+students:
+  - name: Nurlan Dadashov
+  - name: Burak Yılmaz
+course: 492
+type: project
+tags: 
   - web
 ---
 ## Summary
@@ -18,3 +23,4 @@ In this project, you will design and implement a web service to publish senior p
 ## Other notes
 - A big focus must be placed on maintenance and reliability concerns (hence simplicity is paramount).
 - A successful project must be containerized and deployed automatically from the repository via cloud-native tooling.
+
