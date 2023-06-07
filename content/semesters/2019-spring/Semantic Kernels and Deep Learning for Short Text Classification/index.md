@@ -7,6 +7,7 @@ students:
 - name: Yaşar Alim Türkmen
 title: Semantic Kernels and Deep Learning for Short Text Classification
 type: project
+rank: 2
 ---
 
 Shot-text classification is a challenging topic in particular for Turkish text due to sparsity of distinguishing features and high dimensionality.

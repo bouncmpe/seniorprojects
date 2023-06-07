@@ -7,6 +7,7 @@ students:
 - name: Ali Kireçligöl
 title: eBloc Blockchain Voting
 type: project
+rank: 1
 ---
 
 Blockchain is a linked list of cryptographically secured blocks of information that can be maintained on a peer-to-peer network. Its cryptographic and decentralized nature provides blockchain applications immutability, corruption & tamper proofness, security and fault tolerance which make elections an ideal application of blockchain technologies. Ethereum, a computing platform that provides a Turing-complete virtual machine on blockchain networks lets users deploy and run applications called smart contracts.

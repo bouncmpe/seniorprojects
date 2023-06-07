@@ -7,6 +7,7 @@ students:
 - name: Ömer Kırbıyık
 title: Generative Image Synthesis with Deep Learning
 type: project
+rank: 2
 ---
 
 Recent studies in Deep Learning have led to many advancements in problems regarding images. One of the obstacles that researchers have faced is training with Deep Learning methods requires a vast amount of data and computation power. Among the methods that try to overcome with mentioned problem, we are especially interested in transfer learning and using synthetic data.  

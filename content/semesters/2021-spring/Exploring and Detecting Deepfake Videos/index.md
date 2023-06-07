@@ -7,6 +7,7 @@ students:
 - name: Koray Çetin
 - name: Hamza Işıktaş
 - name: Ertuğrul Bülbül
-title: Exploring and Detecting Deepfake Videos
+title: A mobile app for virtual try-on of fashion items
 type: project
+rank: 2
 ---

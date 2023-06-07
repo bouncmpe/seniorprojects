@@ -8,6 +8,7 @@ students:
 - name: Bekir Burak Aslan
 title: A Course Pre-Registration System for Boğaziçi University
 type: project
+rank: 3
 ---
 
 Why do we send consent request ?

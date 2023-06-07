@@ -8,6 +8,7 @@ students:
 title: Explaining A Deep Learning Based Model for Spelling Correction of "de/da" Clitics
   in Turkish through Understanding Their Dependence to Various Regions of A Sentence
 type: project
+rank: 3
 ---
 
 A model agnostic perturbation-based explanation approach is proposed for the spellchecker of Turkish “de/da” spelling errors. Findings of this approach are validated with a GWAP application.

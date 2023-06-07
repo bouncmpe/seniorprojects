@@ -6,6 +6,7 @@ students:
 - name: Yiğit Özkavcı
 title: 'Ivy: A programming language targeting Ethereum Virtual Machine'
 type: project
+rank: 2
 ---
 
 Ivy is a programming language designed for Ethereum Virtual Machine. Ivy enables us to write smart contracts and deploy them directly to an Ethereum blockchain.

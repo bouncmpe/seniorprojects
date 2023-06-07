@@ -6,6 +6,7 @@ students:
 - name: Oğuz Kaan Yüksel
 title: Randomized Gradient Adversarial Training
 type: project
+rank: 2
 ---
 
 Randomized Gradient Step scales sign gradients pixel-wise in order to improve state of the art Projected Gradient Descent adversarial training to have higher diversity in adversarial generation thereby improve robustness and generalization of deep neural networks.

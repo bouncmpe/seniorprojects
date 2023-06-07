@@ -7,6 +7,7 @@ students:
 - name: Salih Sevgican
 title: 5G / CloudRAN
 type: project
+rank: 2
 ---
 
 Mobile devices have become a part of our very daily lives. In the last two decades a lot of thing has been changed in the field of mobile communications. The last and very exciting development is the 5G technology which is better and improved version of the LTE as well as supporting green technology. 5G technology proposes a diferent architecture than usual such as new antenna designs, working with higher frequencies and Cloud Radio Access Network Architectures.

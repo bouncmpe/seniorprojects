@@ -9,6 +9,7 @@ students:
 - name: Hasan Ramazan Yurt
 title: Investigating Bias and Discrimination in Movies using Deep Learning
 type: project
+rank: 3
 ---
 
 Video: <https://drive.google.com/file/d/13e7vXG_MQ8P8edvfS04DA5bWHJeADVQS>

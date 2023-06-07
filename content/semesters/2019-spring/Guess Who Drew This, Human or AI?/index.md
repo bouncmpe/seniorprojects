@@ -7,6 +7,7 @@ students:
 - name: Ömer Kırbıyık
 title: Guess Who Drew This, Human or AI?
 type: project
+rank: 1
 ---
 
 Our goal is to be able to distill the style from an individual's handwriting and generate handwritten text that is indistinguishable by same person's handwriting. Besides having the scientific value of being able to capture style from the content, such a system can be used for bridging the beauty of handwriting and accessibility of digital text. In this regard, we have generated characters in training set then extended it to generating characters seen for the first time. To evaluate our generative network, we've created a game with a purpose (GWAP) application.  
