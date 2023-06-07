@@ -11,7 +11,7 @@
             <hr>
             <div class="post-author d-flex flex-wrap">
                 <span class="fw-medium me-2">Project Advisor(s):</span>
-                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
+                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors "co_advisors" .Params.co_advisors) }}
             </div>
         </div>
         <section id="lightgallery">
@@ -25,6 +25,12 @@
             {{ end }}
             <div class="content">
                 {{ .Content }}
+            </div>
+            <hr>
+            <div class="pp-4 my-4">
+                {{ range .Params.tags }}
+                    <span class="badge text-bg-light me-2">{{ . }}</span>
+                {{ end }}
             </div>
         </section>
     </article>

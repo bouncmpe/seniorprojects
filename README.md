@@ -11,7 +11,7 @@ executing the following commands in your environment.
 git clone git@github.com:bouncmpe/seniorprojects.git
 cd seniorprojects
 npm install
-npm run dev
+npm start
 ```
 
 And then visit the address `localhost:1313` in your browser to check your local

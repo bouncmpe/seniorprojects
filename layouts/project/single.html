@@ -33,6 +33,9 @@
                     {{ range .Params.advisors }}
                         <a href='{{ printf "/advisors/%s" . | urlize | relURL }}' class="mt-1 d-block">{{ . }}</a>
                     {{ end }}
+                    {{ if .Params.co_advisors }}
+                        <p class="mt-1">{{ .Params.co_advisors }}</p>
+                    {{end}}
                 </div>
                 <hr>
                 <div class="pp-4 my-4">

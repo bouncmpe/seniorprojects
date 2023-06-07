@@ -60,7 +60,7 @@ collections:
         }
       - {
           label: "Co-Advisor",
-          name: "co-advisors",
+          name: "co_advisors",
           widget: "string",
           required: false,
         }

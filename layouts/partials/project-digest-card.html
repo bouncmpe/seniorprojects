@@ -15,7 +15,7 @@
                 {{ $students = $students | append $student.name }}
                 {{ end }}
                 <p class="card-text mb-1"><span class="fw-semibold">Students:</span> {{ delimit $students ", " }}</p>
-                <p class="card-text"><span class="fw-semibold">Advisors:</span> {{ partial "advisors-inline.html" (dict "advisors" .page.Params.advisors) }}
+                <p class="card-text"><span class="fw-semibold">Advisors:</span> {{ partial "advisors-inline.html" (dict "advisors" .page.Params.advisors "co_advisors" .page.Params.co_advisors) }}
                 </p>
             </div>
         </div>

@@ -19,7 +19,7 @@
                         <tr class="position-relative">
                             <td><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></td>
                             <td>
-                                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors) }}
+                                {{ partial "advisors-inline.html" (dict "advisors" .Params.advisors "co_advisors" .Params.co_advisors) }}
                             </td>
                             <td>{{ .Date.Format "2006" }}</td>
                         </tr>

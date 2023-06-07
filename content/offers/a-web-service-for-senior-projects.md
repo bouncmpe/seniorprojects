@@ -3,6 +3,8 @@ title: A web service for senior projects
 date: 2023-06-06T17:36:51.831Z
 advisors:
   - Doğan Ulus
+tags:
+  - web
 ---
 ## Summary
 In this project, you will design and implement a web service to publish senior project offers from faculty to students and disseminate the project results to a wider audience.

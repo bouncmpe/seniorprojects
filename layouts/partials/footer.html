@@ -16,13 +16,11 @@
                 <h5 class="mb-3">Links</h5>
                 <ul class="list-unstyled">
                     <li class="mb-2"><a href="{{ relURL "/admin" }}">Admin</a></li>
-                    {{ range .Site.Pages }}
-                        {{ if not .Section }}
-                            {{ if not (eq .Type "home") }}
-                            <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
+                    <li class="mb-2"><a href="{{ relURL "/advisor-guide" }}">Advisor Guide</a></li>
+                    <li class="mb-2"><a href="{{ relURL "/student-guide" }}">Student Guide</a></li>
+                    <li class="mb-2"><a href="{{ relURL "/advisors" }}">Advisors</a></li>
+                    <li class="mb-2"><a href="{{ relURL "/regulations" }}">Regulations</a></li>
+                    <li class="mb-2"><a href="{{ relURL "/poster" }}">How to Create a Project Poster</a></li>
                 </ul>
             </div>
             <div class="col-6 col-lg-3 mb-3 mt-2">

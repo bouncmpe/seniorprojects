@@ -1,0 +1,42 @@
+{{- define "title" }}
+{{- .Title }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+<style>
+    .wrapper {
+        background-color: #F5F5F7
+    }
+</style>
+{{ $advisor := .Title }}
+<div class="py-4">
+<h1 class="fw-semibold mb-4">{{ .Title }}</h1>
+
+{{ $offers := where .Site.Pages.ByTitle "Section" "==" "offers" }}
+{{ $offer_pages := where $offers ".Params.advisors" "intersect" (slice $advisor) }}
+{{ if $offer_pages }}
+    <h2 class="mb-4">Offered Projects</h2>
+    <div class="row gy-lg-3 gx-lg-4">
+        {{ range $offer_pages }}
+            {{ partial "project-card.html" (dict "page" .) }}
+        {{ end }}
+    </div>
+{{ end }}
+
+<h2 class="mb-4">Completed Projects</h2>
+{{ $semesters := (where .Site.Pages "Type" "==" "semester").Reverse }}
+{{ range $semesters }}
+    {{ $pages := where .Pages ".Params.advisors" "intersect" (slice $advisor) }}
+    {{ if $pages }}
+        <div class="mb-2">
+            <h4 class="mb-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+            <div class="row gy-lg-3 gx-lg-4">
+                {{ range $pages.ByTitle }}
+                    {{ partial "project-card.html" (dict "page" .) }}
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+{{ end }}
+</div>
+{{- end -}}

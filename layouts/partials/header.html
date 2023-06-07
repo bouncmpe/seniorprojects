@@ -19,7 +19,9 @@
         
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                {{ partial "logo.html" }}
+                <div class="ms-2">
+                    {{ partial "logo.html" }}
+                </div>
                 <button type="button" class="btn-close me-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -63,6 +65,12 @@
                     </li>
                     {{ end }}
                     {{- end -}}
+                    <li class="nav-item d-md-none"><a class="nav-link" href="{{ relURL "/advisors" }}">Advisors</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="{{ relURL "/regulations" }}">Regulations</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="{{ relURL "/poster" }}">How to Create a Project Poster</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="{{ relURL "/admin" }}">Admin</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="{{ relURL "/advisor-guide" }}">Advisor Guide</a></li>
+                    <li class="nav-item d-md-none"><a class="nav-link" href="{{ relURL "/student-guide" }}">Student Guide</a></li>
                 </ul>
                 <div class="nav-item d-none d-md-block" data-bs-toggle="modal" data-bs-target="#searchModal" style="cursor: pointer;">
                     <a class="nav-link" style="margin-top: 8px;" href="#">

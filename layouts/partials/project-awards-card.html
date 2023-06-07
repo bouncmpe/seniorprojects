@@ -23,6 +23,9 @@
                         </a>
                     </p>
                 {{ end }} 
+                {{ if .page.Params.co_advisors }}
+                    <p class="mb-1">{{ .page.Params.co_advisors }}</p>
+                {{ end }}
             </div>
         </div>
     </div>

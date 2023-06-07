@@ -9,6 +9,8 @@ students:
   - name: Burak Yılmaz
 course: 492
 type: project
+tags: 
+  - web
 ---
 ## Summary
 In this project, you will design and implement a web service to publish senior project offers from faculty to students and disseminate the project results to a wider audience.
