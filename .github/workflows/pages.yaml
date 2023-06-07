@@ -32,6 +32,18 @@ jobs:
         with:
           path: ~/.cache/hugo
           key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
+          
+      - name: Cache Public
+        uses: actions/cache@v2
+        with:
+          path: ~/public
+          key: ${{ runner.os }}-hugo-public-${{ env.HUGO_VERSION }}
+          
+      - name: Cache Resources
+        uses: actions/cache@v2
+        with:
+          path: ~/resources
+          key: ${{ runner.os }}-hugo-resources-${{ env.HUGO_VERSION }}
 
       - name: Cache npm dependencies
         uses: actions/cache@v2
