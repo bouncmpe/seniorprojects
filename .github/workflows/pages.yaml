@@ -27,6 +27,13 @@ jobs:
     env:
       HUGO_VERSION: 0.110.0
     steps:
+    
+      - name: LS
+        run: ls
+        
+      - name: pwd
+        run: pwd
+          
       - name: Cache Hugo
         uses: actions/cache@v2
         with:
